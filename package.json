@@ -1,0 +1,16 @@
+{
+  "name": "jupiter-tools",
+  "version": "1.0.0",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "yarn workspaces foreach -pt run build",
+    "test": "yarn workspaces foreach -p run test"
+  },
+  "volta": {
+    "node": "18.18.0",
+    "yarn": "3.6.3"
+  }
+}

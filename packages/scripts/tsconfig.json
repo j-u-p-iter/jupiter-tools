@@ -1,0 +1,9 @@
+{
+  "extends": "@jupiter-tools/tsconfig-jupiter/tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist/lib",
+    "declarationDir": "dist/types"
+  },
+  "include": ["src"],
+  "exclude": ["**/__tests__/"]
+}

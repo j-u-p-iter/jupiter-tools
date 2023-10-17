@@ -1,0 +1,9 @@
+{
+  "name": "@jupiter-tools/tsconfig-jupiter",
+  "version": "0.0.0-semantically-released",
+  "description": "Sharable typescript config",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "tsconfig.json"
+}

@@ -1,0 +1,46 @@
+{
+  "name": "@jupiter-tools/scripts",
+  "version": "0.0.0-semantically-released",
+  "type": "module",
+  "description": "Handy-dandy scripts",
+  "main": "dist/lib/index.js",
+  "types": "dist/types/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "bin": {
+    "jupiter-scripts": "dist/lib/index.js"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "build:watch": "yarn run build --watch",
+    "lint": "jupiter-scripts lint",
+    "test": "vitest"
+  },
+  "volta": {
+    "node": "18.17.1",
+    "yarn": "3.6.3"
+  },
+  "devDependencies": {
+    "@types/cross-spawn": "^6.0.3",
+    "@types/eslint__js": "^8.42.1",
+    "@types/glob": "^8.1.0"
+  },
+  "dependencies": {
+    "@eslint/js": "^8.50.0",
+    "@jupiter-tools/eslint-config-jupiter": "workspace:^",
+    "@jupiter-tools/tsconfig-jupiter": "workspace:^",
+    "@jupiter-tools/utils": "workspace:^",
+    "@typescript-eslint/eslint-plugin": "^6.7.4",
+    "@typescript-eslint/parser": "^6.7.3",
+    "cross-spawn": "^7.0.3",
+    "eslint": "^8.49.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "glob": "^10.3.4",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2",
+    "vitest": "^0.34.6",
+    "write-json-file": "^5.0.0"
+  }
+}
