@@ -326,7 +326,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@jupiter-tools/scripts@workspace:^, @jupiter-tools/scripts@workspace:packages/scripts":
+"@jupiter-tools/scripts@workspace:packages/scripts":
   version: 0.0.0-use.local
   resolution: "@jupiter-tools/scripts@workspace:packages/scripts"
   dependencies:
@@ -363,7 +363,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@jupiter-tools/utils@workspace:packages/utils"
   dependencies:
-    "@jupiter-tools/scripts": "workspace:^"
     "@types/edit-json-file": ^1.7.0
     "@types/lodash": ^4.14.198
     "@types/which": ^3.0.0

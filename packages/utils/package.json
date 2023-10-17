@@ -11,8 +11,7 @@
   "scripts": {
     "build": "tsc -b",
     "build:watch": "yarn run build --watch",
-    "lint": "jupiter-scripts lint",
-    "test": "vitest"
+    "lint": "jupiter-scripts lint"
   },
   "volta": {
     "node": "18.17.1",
@@ -23,7 +22,6 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@jupiter-tools/scripts": "workspace:^",
     "@types/edit-json-file": "^1.7.0",
     "@types/which": "^3.0.0",
     "@types/yargs-parser": "^21.0.0",

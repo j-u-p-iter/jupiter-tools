@@ -15,7 +15,7 @@
     "build": "tsc -b",
     "build:watch": "yarn run build --watch",
     "lint": "jupiter-scripts lint",
-    "test": "vitest"
+    "test": "vitest --config src/configs/vitest.config.ts"
   },
   "volta": {
     "node": "18.17.1",
