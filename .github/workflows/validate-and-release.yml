@@ -29,11 +29,7 @@ jobs:
           yarn-version: ${{ matrix.yarn }}
 
       - name: Install dependencies
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: install
+        run: yarn install
 
       - name: Run tests
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: test
+        run: yarn test
