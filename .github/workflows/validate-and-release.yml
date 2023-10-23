@@ -33,9 +33,6 @@ jobs:
       - name: Install yarn
         run: yarn set version stable
 
-      - name: Install yarn workspaces plugin
-        run: yarn plugin import @yarnpkg/plugin-workspace-tools
-
       - name: Install dependencies
         run: yarn install
 
