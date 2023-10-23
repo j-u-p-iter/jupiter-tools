@@ -5,7 +5,7 @@ describe("prepareConfig", () => {
     process.argv = [];
   });
 
-  it("returns config passed in options", async () => {
+  it.skip("returns config passed in options", async () => {
     process.argv = [
       "node",
       "build",

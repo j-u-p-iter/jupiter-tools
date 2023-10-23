@@ -335,11 +335,13 @@ __metadata:
     "@jupiter-tools/tsconfig-jupiter": "workspace:^"
     "@jupiter-tools/utils": "workspace:^"
     "@types/cross-spawn": "npm:^6.0.3"
+    "@types/edit-json-file": "npm:^1.7.2"
     "@types/eslint__js": "npm:^8.42.1"
     "@types/glob": "npm:^8.1.0"
     "@typescript-eslint/eslint-plugin": "npm:^6.7.4"
     "@typescript-eslint/parser": "npm:^6.7.3"
     cross-spawn: "npm:^7.0.3"
+    edit-json-file: "npm:^1.7.0"
     eslint: "npm:^8.49.0"
     eslint-config-prettier: "npm:^9.0.0"
     eslint-plugin-prettier: "npm:^5.0.0"
@@ -363,12 +365,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@jupiter-tools/utils@workspace:packages/utils"
   dependencies:
-    "@types/edit-json-file": "npm:^1.7.0"
     "@types/lodash": "npm:^4.14.198"
     "@types/which": "npm:^3.0.0"
     "@types/yargs-parser": "npm:^21.0.0"
     arrify: "npm:2.0.1"
-    edit-json-file: "npm:^1.7.0"
     lodash: "npm:^4.17.21"
     read-pkg-up: "npm:^10.1.0"
     typescript: "npm:^5.2.2"
@@ -473,13 +473,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/edit-json-file@npm:^1.7.0":
-  version: 1.7.0
-  resolution: "@types/edit-json-file@npm:1.7.0"
+"@types/edit-json-file@npm:^1.7.2":
+  version: 1.7.2
+  resolution: "@types/edit-json-file@npm:1.7.2"
   dependencies:
     "@types/node": "npm:*"
     "@types/set-value": "npm:*"
-  checksum: 171f2422f0cdd5e604cc8868971bb0d2f579a7ceba86ec8ad69f24b7f7c02a637cf153a23123d24619b376af04e236afe6f2f4e892f7d71d769d90548d28563b
+  checksum: c9dc1fccf07e14396d07363b765ebab856892446670b154b380edc2d2bd2642f69dee105b2accce714fd425f3a25ad5af724c71c817f3001eaa5db73b6ce6d27
   languageName: node
   linkType: hard
 
@@ -562,9 +562,9 @@ __metadata:
   linkType: hard
 
 "@types/set-value@npm:*":
-  version: 4.0.1
-  resolution: "@types/set-value@npm:4.0.1"
-  checksum: eab95207d90885016cdb3456b0d4ffe2c735c40d2bf9ee5569a076d7a900028cf45726ba7d4bf4c6cb110db1a4a34736570aaf500d9e38bef5dd174dcd3b890d
+  version: 4.0.2
+  resolution: "@types/set-value@npm:4.0.2"
+  checksum: 3868200c65ae9a511136e513de80616803b606ba2b5d15972b4bca820a77fcfaf0917f41c5b6e3faacf5e023dfcdae407747d0a763bb82ae5ae7680767d38d7f
   languageName: node
   linkType: hard
 
