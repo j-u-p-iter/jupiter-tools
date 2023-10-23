@@ -11,8 +11,8 @@ the master branch is updated again. This is why the `cancel-in-progress` set up 
 
 Concurrency group name consists of two dynamic parts:
 
-- github.workflow - the name of the workflow;
-- github.ref - the name of the branch.
+- github.workflow - the name of the workflow ("Validate and Release");
+- github.ref - the name of the branch ("master").
 
 So, if there is a running workflow "Validate and Release" for the `master` branch and new updates were pushed
 to the `master` the previosly running workflow is canceled and new one started.
