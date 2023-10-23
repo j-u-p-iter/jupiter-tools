@@ -22,11 +22,10 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Setup node and yarn
-        uses: volta-cli/action@v4
+      - name: Setup node
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-          yarn-version: ${{ matrix.yarn }}
 
       - name: Install yarn workspaces plugin
         run: yarn plugin import @yarnpkg/plugin-workspace-tools
