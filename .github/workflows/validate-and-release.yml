@@ -1,4 +1,4 @@
-name: Validate and Release
+name: Validates and Releases
 
 on: 
   push:
