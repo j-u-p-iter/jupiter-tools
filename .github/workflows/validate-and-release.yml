@@ -29,6 +29,9 @@ jobs:
       - name: Enables corepack
         run: corepack enable
 
+      - name: Set up yarn version
+        run: yarn set version 4.0.0
+
       - name: Install dependencies
         run: yarn install
 
