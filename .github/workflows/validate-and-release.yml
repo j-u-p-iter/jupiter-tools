@@ -27,9 +27,6 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
-      - name: Enable corepack
-        run: corepack enable
-
       - name: Install yarn
         run: yarn set version 3.6.3
 
