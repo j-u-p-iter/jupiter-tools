@@ -18,8 +18,7 @@
     "test": "vitest --config src/configs/vitest.config.ts"
   },
   "volta": {
-    "node": "18.17.1",
-    "yarn": "3.6.3"
+    "node": "18.17.1"
   },
   "devDependencies": {
     "@types/cross-spawn": "^6.0.3",
