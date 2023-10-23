@@ -31,7 +31,7 @@ jobs:
         run: corepack enable
 
       - name: Install yarn
-        run: yarn set version stable
+        run: yarn set version 3.6.3
 
       - name: Install dependencies
         run: yarn install
