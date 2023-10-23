@@ -6,8 +6,8 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "yarn workspaces foreach -pt run build",
-    "test": "yarn workspaces foreach -p run test run"
+    "build": "yarn workspaces foreach -Apt run build",
+    "test": "yarn workspaces foreach -Ap run test run"
   },
   "volta": {
     "node": "18.18.0",

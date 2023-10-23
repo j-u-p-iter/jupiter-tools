@@ -26,7 +26,7 @@ for:
 strategy:
   matrix:
     os: [ubuntu-latest, windows-latest]
-    node: [14.17.0, 14, 16.10.0, 16, 18]
+    node: [18]
 ```
 
 As result the `validate` job will be run for all possible combinations of the `os` and `node` fields.
@@ -42,3 +42,8 @@ ${{ matrix.node }}
 ```
 
 which was set up previously.
+
+Next we are installing the dependencies with yarn. Yarn itself will be installed automatically by the Corepack which is a part of a Node.js.
+Corepack knows which package manager version to use thanks to the standard packageManager field in your package.json
+Also the yarn to be installed properly some files from the .yarn folder should be committed. To do that the .gitignore file should be updated
+appropriately.
