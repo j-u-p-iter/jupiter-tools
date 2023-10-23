@@ -2,11 +2,10 @@ node_modules
 dist
 coverage
 yarn-error.log
-.yarn
 .git
 .eslintcache
+.pnp.*
 .yarn/*
-!.yarn/cache
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
