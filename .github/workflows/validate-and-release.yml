@@ -28,7 +28,7 @@ jobs:
           node-version: ${{ matrix.node }}
 
       - name: Install yarn
-        run: yarn set version 3.6.3
+        run: yarn set version latest
 
       - name: Install dependencies
         run: yarn install
