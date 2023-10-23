@@ -27,6 +27,9 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
+      - name: Install yarn
+        run: npm install -g yarn@3.6.3
+
       - name: Install yarn workspaces plugin
         run: yarn plugin import @yarnpkg/plugin-workspace-tools
 
