@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "skipLibCheck": true,
     "module": "nodenext",
     "sourceMap": true,
     "target": "ES2018",
