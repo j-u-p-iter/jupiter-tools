@@ -1,0 +1,26 @@
+1. Add "validate" script to be used in the "validate" job of the github actions workflow (not for this package but for all other packages, created with this package).
+2. Add "precommit" script to be run on "precommit".
+3. Add .lintstaged config.
+4. Add release job for the github actions workflow.
+5. Add lint step for the "validate" job of the current package.
+
+1. Add typecheck script. We can't use for typechecking build script since it emits tests files to the output directory.
+So, we need to create an editional script just for typechecking. It should use base typescript config.
+
+2. Add --no-clean option for the build script. It will cancel removal of the dist folder when build script is running. By default
+build script should always remove the dist folder before emitting the next compilation output.
+
+3. Describe the presence of the two typescript configuration files in the project. The base config is used for 
+linting and typechecking purposes and the build config is used for building purposes.
+
+4. exclude option in the typescript configs should exclude only files which are included by the include option. It means it
+doesn't make sense exclude something, which was not previously included by the "include" option.
+
+5. It's not possible to run jupiter-scripts scripts for this project since:
+  - we are preparing the ts configs while we are running scripts;
+  - we are using the code in the /dist folder to run the scripts. 
+
+  Need to explain it in the docs.
+
+6. Describe why for the current project the custom "build" script is used instead of the one from the package. 
+Also describe how the "scripts" section of this packages looks like and why it looks like that.

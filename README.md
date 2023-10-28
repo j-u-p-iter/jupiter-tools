@@ -1,49 +1,276 @@
-# CI/CD
+# Available Scripts
 
-The name of the github actions workflow is "Validate and Release". The goal of this workflow is to:
-  - validate the source code before releasing it; 
-  - release the new package build.
+## jupiter-scripts lint
 
-The workflow is triggered by the push to the `master` branch.
+For the linting purposes the ESLint is used under the hood.
 
-The `concurrency` field allows us to cancel previously created "Validate and Release" workflow in case
-the master branch is updated again. This is why the `cancel-in-progress` set up to `true`.
+### Configuration
 
-Concurrency group name consists of two dynamic parts:
+The script is using the default config from @jupiter-tools/eslint-config-jupiter package.
 
-- github.workflow - the name of the workflow ("Validate and Release");
-- github.ref - the name of the branch ("master").
+This config contains the prefferable common configurations for all my projects.
 
-So, if there is a running workflow "Validate and Release" for the `master` branch and new updates were pushed
-to the `master` the previosly running workflow is canceled and new one started.
+It's possible to replace this config with such called builtin config. You have next options to do that:
 
-Next we are declaring the first job we want to run called `validate`.
-
-The first thing we defined for this job is the `strategy` which declares the set of possible environments we want to run the workflow's job
-for:
+- pointing out the path to the custom config with the `--config` option:
 
 ```
-strategy:
-  matrix:
-    os: [ubuntu-latest, windows-latest]
-    node: [18]
+jupiter-scripts lint --config ./path/to/customConfig.ts
 ```
 
-As result the `validate` job will be run for all possible combinations of the `os` and `node` fields.
+- creating the `eslint.config.js` config in the root folder of the project (next to the package.json file). ESLint
+will find, read and use this config automatically.
 
-The first step we execute for the `validate` job is checkouting the repo. It's a fancy way to say - cloning the repository
-to the runner to be able to work with it. In other words it's a preparational step for the future scripts runs.
+### Auto fix
 
-The next step is also a preporational one and is used to set up node - to download the distrubution of the requested Node.js version.
-The required Node.js distribution version is declared with the `with` keyword. The node version is taken from the matrix context:
+The script is automatically fixing all the issues, providing the predefined `--fix` option to the ESLint.
+
+It's possible to disable autofix feature with the `--no-fix` option:
 
 ```
-${{ matrix.node }}
+jupiter-scripts lint --no-fix
 ```
 
-which was set up previously.
+Probably you'll want to do it in CI environment.
 
-Next we are installing the dependencies with yarn. Yarn itself will be installed automatically by the Corepack which is a part of a Node.js.
-Corepack knows which package manager version to use thanks to the standard packageManager field in your package.json
-Also the yarn to be installed properly some files from the .yarn folder should be committed. To do that the .gitignore file should be updated
-appropriately.
+### Auto caching
+
+The script is automatically caches the state of the linted application, using predefined `--cache` option
+for the eslint script. ESlint automatically creates .eslintcache file in the root of the project. It's important
+to add this file to the .gitignore since you definitely don't need to commit it.
+
+It's possible to disable autocaching feature with the `--no-cache` option:
+
+```
+jupiter-scripts lint --no-cache
+```
+
+Probably you'll want to do it in CI environment.
+
+### Quiet mode
+
+The script is running in a quiet mode by default. It means that it doesn't emit warnings in the console.
+
+It's possible to disable quiet mode with the `--no-quiet` option:
+
+```
+jupiter-scripts lint --no-quiet
+```
+
+### Files to lint
+
+The script is linting by default all the .ts files starting from the root of the folder, excluding the /dist and /node_modules folders.
+
+It's possible to provide custom paths to the .ts files to lint only them:
+
+
+```
+jupiter-scripts lint ./custom/path/to/lint/**/*.ts
+```
+
+It's important to point out that the predefined ESlint config from the ./config derictory contains `files` property. 
+This property contains the glob of all possible files to lint. If this glob doesn't match with the files to lint
+provided to the script they won't be linted.
+
+Also it's important to point out that dist and node_modules folder are not linted thanks to the `ignores` field of the default ESlint config.
+
+## jupiter-scripts test
+
+For the testing purposes the vitest is used under the hood.
+
+### Configuration
+
+The script is using the default config `vitest.config.ts` from the `/config` folder.
+This config contains the prefferable common configurations.
+
+It's possible to replace this config with such called builtin config. You have next options to do that:
+
+- pointing out the path to the custom config with the `--config` option:
+
+```
+jupiter-scripts test --config ./path/to/customConfig.js
+```
+
+- creating the `vitest.config.ts` config in the root folder of the project (next to the package.json file). Vitest
+will find, read and use this config automatically.
+
+
+### Watch mode
+
+To run script in watch mode the `--watch` option should be provided.
+
+```
+jupiter-scripts test --watch
+```
+
+### Update snapshots
+
+To update snapshots the `--update` option should be provided.
+
+```
+jupiter-scripts test --update
+```
+
+## jupiter-scripts build
+
+For the building process typescript is used under the hood.
+
+### Configuration
+
+By default this project relies on the tsconfig.json from the @jupiter-tools/tsconfig-jupiter package. This packages
+contains prefferable configurations I use in all my projects.
+
+Because of the specific of how TypeScript works with the config and what options should be put there we can't just 
+point out the path to this config for the build script. Instead we are copying this config in the `configs` directory,
+located in the dist folder when we run any script first time. For that purpose we use setUpTsConfig utility, located
+in the `setUpTsConfig.ts` file.
+
+It's important to point declarationDir, outDir, include and exclude paths in the tsconfig.json it to work properly. We can't do it universally
+in one common place since these paths are specific to the location of the tsconfig.json file in every project. Because of that we update this config
+dynamically while we are copying it to the `configs/` folder while running any of the scripts of this project.
+
+So, before any scripts of this project starts running the necessary tsconfig.json is already prepared and sits in the `dist/configs` folder.
+
+At the same time it's possible to replace this config with such called builtin config. You have next options to do that:
+
+- pointing out the path to the custom config with the `--config` option:
+
+```
+jupiter-scripts build --config ./path/to/tsconfig.json
+```
+
+- creating the `tsconfig.json` config in the root folder of the project (next to the package.json file). TypeScript
+will find, read and use this config automatically.
+
+## jupiter-scripts typecheck
+
+For the typechecking process typescript is used under the hood.
+
+### Configuration
+
+By default this project relies on the tsconfig.json from the @jupiter-tools/tsconfig-jupiter package. This packages
+contains prefferable configurations I use in all my projects.
+
+Because of the specific of how TypeScript works with the config and what options should be put there we can't just 
+point out the path to this config for the typecheck script. Instead we are copying this config in the `configs` directory,
+located in the dist folder when we run any script first time. For that purpose we use setUpTsConfig utility, located
+in the `setUpTsConfig.ts` file.
+
+It's important to point `declarationDir`, `outDir`, `include` and `exclude` paths in the tsconfig.json it to work properly. We can't do it universally
+in one common place since these paths are specific to the location of the tsconfig.json file in every project. Because of this we update this config
+dynamically while we are copying it to the `configs/` folder while running any of the scripts of this project.
+
+So, before any scripts of this project starts running the necessary tsconfig.json is already prepared and sits in the `dist/configs` folder.
+
+At the same time it's possible to replace this config with such called builtin config. You have next options to do that:
+
+- pointing out the path to the custom config with the `--config` option:
+
+```
+jupiter-scripts typecheck --config ./path/to/tsconfig.json
+```
+
+- creating the `tsconfig.json` config in the root folder of the project (next to the package.json file). TypeScript
+will find, read and use this config automatically.
+
+## About multiple TypeScript configuration files into the configs/ folder 
+
+lint, test, typecheck and build scripts are using TypeScript configuration file while there are running. So, there is 
+should be somewhere configuration file which should be provided to these scripts. While it's possible to provide
+configuration file to these scripts in every project they are used, there is a lot of redundant work which could be
+avoid. Instead of creating specific config for every projects these scripts are used in, the common TypeScript configuration
+files are used.
+
+These files are created dynamically when any of the scripts is run first time. `setUpTsConfigs.ts` module of this project is responsible
+for that.
+
+It's necessary to point out in the TypeScript configuration file the include and exclude paths the process to work properly.
+
+The "include" key should include the paths the TypeScript should run for. Usually it's a ["src"] folder, where all the source code files
+are located. The path to the "src" folder is relative to the position of the config. It leads to the situation where our configs
+also should contain the include paths relative to the root folder. And it forces us to set up this path dynamically as absolute paths.
+
+If you open the "dist/lib/configs" folder of this package, you'll find the "include" path which looks like that:
+
+{
+  ...
+  "include": ["/Users/a1234/Sites/jupiter-tools/packages/scripts/src"]
+  ...
+}
+
+The "exclude" key should include the paths the TypeScript shouldn't run for. Usually it's a "coverage", "dist", "node_modules" folders. Again, 
+usually these paths are relative to the location of the position of the configuration file. In our case we set up them dynamically as absolute paths. 
+
+If you open the "dist/lib/configs" folder of this package, you'll find the "include" path which looks like that:
+
+{
+  ...
+  "exclude": [
+    "/Users/a1234/Sites/jupiter-tools/packages/scripts/coverage",
+    "/Users/a1234/Sites/jupiter-tools/packages/scripts/node_modules",
+    "/Users/a1234/Sites/jupiter-tools/packages/scripts/**/__tests__"
+  ]
+  ...
+}
+
+There is a slight difference in how configuration files for build and other scripts should look like. The only difference in our case
+is that build script should exclude additionally __tests__ folder. This is the reason why in the "dist/lib/configs/" folder you can find
+not one but two different configs:
+
+- tsconfg.base.json
+- tsconfig.build.json
+
+The "base" config extends common @jupter-tools/tsconfig-jupiter config and is used for lint, test and typecheck scripts. 
+The "build" config extends the "base" config and is used for build script.
+
+The "build" config has two differences from the "base" config. 
+
+Since the "build" script emits the output files we need to
+point out the result directories for the types and the main source code. For that purpose the "build" config extends the "base" one
+with two additional "compilerOptions" - "declarationDir" and "outDir". Again, paths for these keys are absolute and are generated dynamically
+on first script run.
+
+Also the "build" script shouldn't build files which are used for testing purposes. This is why the "build" config extends the "base" one
+with one additional "exclude" key, which contains absolute path to the __tests__ folder.
+
+## About scripts section in the package.json
+
+The scripts section of the package.json file contains several scripts to run:
+
+- build
+- lint
+- test
+
+lint and test scripts are running the scripts from the package itself as child processes.
+
+`lint` script looks like:
+
+```
+scripts: {
+  lint: yarn run build & wait-on dist/lib/index.js && node dist/lib/index.js lint
+}
+```
+
+Before running the lint script from the package, package should be built at first. For that `yarn run build` command is running at first.
+It takes some time to create dist folder with it's content. The process is asynchronous and the next command (lint) should wait 
+for until the dist folder with it's content is created. This is what `wait-on` script does. It allows us to wait for
+the presence of the dist/lib/index.js file before running the next command.
+
+The `test` script looks absolutely the same with one exclusion - the `test` script is run instead of the lint:
+
+```
+scripts: {
+  lint: yarn run build & wait-on dist/lib/index.js && node dist/lib/index.js test
+}
+```
+
+There was an initial intent to run these scripts with `ts-node` or `vite-note` utilities. However in the context of the current project
+this approach doesn't work. It doesn't work in this case since `lint` and `test` scripts depend on the TypeScript config, which is created
+dynamically, as explained in the previous section, during the build step. There is no way to do the same with `ts-node` and `vite-node` scripts 
+since they are not emmiting any files.
+
+The build script for this project is custom. There was an attempt to run it with the `ts-node` and `vite-node`. But both these scripts don't run successfully because of the 
+specific internal issues connected with the specificity of the current project.
+
+The build script for this current project is using the `tsconfig.build.json`. It's not named like `tsconfig.json` the lint and test scripts to be able to run with their default
+TypeScript configuration files.
