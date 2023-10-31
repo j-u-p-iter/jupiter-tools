@@ -6,6 +6,8 @@ import { prepareConfig } from "./prepareConfig.js";
 
 const config = prepareConfig(process);
 
-spawn.sync(resolveBin("typescript", { executable: "tsc" }), config, {
+const result = spawn.sync(resolveBin("typescript", { executable: "tsc" }), config, {
   stdio: "inherit",
 });
+
+//result.status !== null && process.exit(result.status);

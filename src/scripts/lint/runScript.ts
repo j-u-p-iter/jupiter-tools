@@ -6,10 +6,12 @@ import { prepareConfig } from "./prepareConfig.js";
 
 const config = prepareConfig(process);
 
-spawn.sync(resolveBin("eslint"), config, {
+const result = spawn.sync(resolveBin("eslint"), config, {
   stdio: "inherit",
   env: {
     ...process.env,
     ESLINT_USE_FLAT_CONFIG: "true",
   },
 });
+
+//result.status !== null && process.exit(result.status);

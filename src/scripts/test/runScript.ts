@@ -9,3 +9,5 @@ const config = prepareConfig(process);
 spawn.sync(resolveBin("vitest"), config, {
   stdio: "inherit",
 });
+
+//result.status !== null && process.exit(result.status);

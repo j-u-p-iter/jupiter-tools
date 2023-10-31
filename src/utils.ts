@@ -178,6 +178,13 @@ const tryIt = (callback: () => void, errorMessage?: string) => {
   }
 };
 
+const resolveJupiterScripts = () =>
+  packageData.name === "@jupiter-tools/scripts"
+    ? require.resolve("../../").replace(process.cwd(), ".")
+    : resolveBin("@jupiter-tools/scripts", {
+        executable: "jupiter-scripts"
+      });
+
 export {
   ifTrue,
   getConcurrentlyArgs,
@@ -196,5 +203,6 @@ export {
   handleSpawnSignal,
   getDirName,
   createRequire,
+  resolveJupiterScripts,
   tryIt,
 };

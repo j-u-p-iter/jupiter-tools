@@ -6,6 +6,8 @@ import { prepareConfig } from "./prepareConfig.js";
 
 const config = prepareConfig(process);
 
-spawn.sync(resolveBin("concurrently"), config, {
+const result = spawn.sync(resolveBin("concurrently"), config, {
   stdio: "inherit",
 });
+
+//result.status !== null && process.exit(result.status);
