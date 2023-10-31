@@ -7,7 +7,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const pathToPackageExecutable = path.join(__dirname, "../dist/lib/index.js");
 
-const runPackageLint = () => {
+const runPackageTest = () => {
   spawn.sync(
     "node",
     [pathToPackageExecutable, "test", ...process.argv.slice(2)],
@@ -27,4 +27,4 @@ if (!existsSync(pathToPackageExecutable)) {
   runBuild();
 }
 
-runPackageLint();
+runPackageTest();

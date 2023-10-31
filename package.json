@@ -20,6 +20,7 @@
     "test": "node scripts/test.js",
     "test:watch": "yarn run test --watch",
     "validate": "node scripts/validate.js",
+    "commit": "node scripts/commit.js",
     "rimraf": "rimraf __dist__ dist"
   },
   "volta": {
@@ -43,6 +44,7 @@
     "@typescript-eslint/eslint-plugin": "^6.9.0",
     "@typescript-eslint/parser": "^6.7.3",
     "arrify": "^3.0.0",
+    "commitizen": "^4.3.0",
     "concurrently": "^8.2.2",
     "cross-spawn": "^7.0.3",
     "edit-json-file": "^1.7.0",
