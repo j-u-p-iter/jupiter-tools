@@ -56,7 +56,45 @@ export const prepareConfig = (process: any) => {
 
   const updateSnapshot = parsedArgs.update ? ["--update"] : [];
 
+  /*
+   * Pass without tests
+   *
+   * Usage:
+   *
+   * jupiter-scripts test --passWithNoTests
+   *
+   */
+
+  const passWithNoTests = parsedArgs.passWithNoTests
+    ? ["--passWithNoTests"]
+    : [];
+
+  /**
+   * Find tests related to the updated files
+   *
+   * Usage:
+   *
+   * jupiter-scripts test --findRelatedTests
+   */
+
+  const findRelatedTests = parsedArgs.findRelatedTests ? ["related"] : [];
+
+  /**
+   * Add path to the location (file/folder) to test
+   *
+   * Usage:
+   *
+   * jupiter-scripts test some/path/to/test.ts
+   */
+
   const pathToTest = parsedArgs._;
 
-  return [...watchMode, ...config, ...updateSnapshot, ...pathToTest];
+  return [
+    ...watchMode,
+    ...config,
+    ...updateSnapshot,
+    ...passWithNoTests,
+    ...findRelatedTests,
+    ...pathToTest,
+  ];
 };
