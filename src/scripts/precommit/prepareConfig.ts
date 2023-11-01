@@ -1,4 +1,4 @@
-import path from 'path';
+import path from "path";
 
 import { parseArgs, hasRootFile, hasPkgProp, getDirName } from "../../utils.js";
 
@@ -17,11 +17,11 @@ export const prepareConfig = (process: any) => {
    *
    */
 
-  const useBuiltinConfig = 
-    parsedArgs.config || 
-    hasRootFile(".lintstagedrc") || 
+  const useBuiltinConfig =
+    parsedArgs.config ||
+    hasRootFile(".lintstagedrc") ||
     hasRootFile("lint-staged.config.js") ||
-    hasPkgProp('lint-staged');
+    hasPkgProp("lint-staged");
 
   const builtinConfig = parsedArgs.config
     ? ["--config", parsedArgs.config]
@@ -29,8 +29,8 @@ export const prepareConfig = (process: any) => {
 
   const pathToDefaultConfig = path.join(
     __dirname,
-    "../../configs/lint-staged.config.js"
-  )
+    "../../configs/lint-staged.config.js",
+  );
 
   const defaultConfig = ["--config", pathToDefaultConfig];
 

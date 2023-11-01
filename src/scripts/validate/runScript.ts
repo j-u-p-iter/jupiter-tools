@@ -10,4 +10,4 @@ const result = spawn.sync(resolveBin("concurrently"), config, {
   stdio: "inherit",
 });
 
-//result.status !== null && process.exit(result.status);
+result.status !== null && process.exit(result.status);

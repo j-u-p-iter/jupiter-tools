@@ -16,14 +16,14 @@ if (result.status !== null && result.status !== 0) {
   process.exit(result.status);
 }
 
-result = spawn.sync('yarn', ['validate'], {
-  stdio: 'inherit',
+result = spawn.sync("yarn", ["validate"], {
+  stdio: "inherit",
 });
 
 if (result.status !== null && result.status !== 0) {
   process.exit(result.status);
 }
 
-spawn.sync('yarn', ['commit'], {
-  stdio: 'inherit',
+spawn.sync("yarn", ["commit"], {
+  stdio: "inherit",
 });

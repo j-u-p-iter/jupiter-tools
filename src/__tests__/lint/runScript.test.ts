@@ -16,6 +16,10 @@ vi.mock("cross-spawn", async () => {
 const runLintScript = () => import("../../scripts/lint/runScript.js");
 
 describe("lint script", () => {
+  beforeAll(() => {
+    process.exit = vi.fn();
+  });
+
   it("executes eslint binary", async () => {
     await runLintScript();
 

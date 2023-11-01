@@ -56,5 +56,7 @@ export const prepareConfig = (process: any) => {
 
   const updateSnapshot = parsedArgs.update ? ["--update"] : [];
 
-  return [...watchMode, ...config, ...updateSnapshot];
+  const pathToTest = parsedArgs._;
+
+  return [...watchMode, ...config, ...updateSnapshot, ...pathToTest];
 };

@@ -1,17 +1,17 @@
-import path from 'path';
-import { createRequire } from '../../utils.js';
+import path from "path";
+import { createRequire } from "../../utils.js";
 // @ts-ignore
-import { bootstrap } from 'commitizen/dist/cli/git-cz.js';
+import { bootstrap } from "commitizen/dist/cli/git-cz.js";
 
 const require = createRequire(import.meta.url);
 
 const getPathToCommitizenRootDir = () => {
-  return path.dirname(require.resolve('commitizen/package.json'));
-}
+  return path.dirname(require.resolve("commitizen/package.json"));
+};
 
 bootstrap({
   cliPath: getPathToCommitizenRootDir(),
   config: {
-    path: 'cz-conventional-changelog',
+    path: "cz-conventional-changelog",
   },
-})
+});

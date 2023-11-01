@@ -16,6 +16,10 @@ vi.mock("cross-spawn", async () => {
 const runTypecheckScript = () => import("../../scripts/typecheck/runScript.js");
 
 describe("typecheck script", () => {
+  beforeAll(() => {
+    process.exit = vi.fn();
+  });
+
   it("executes typescript binary", async () => {
     await runTypecheckScript();
 

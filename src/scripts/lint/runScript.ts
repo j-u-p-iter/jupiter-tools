@@ -6,7 +6,7 @@ import { prepareConfig } from "./prepareConfig.js";
 
 const config = prepareConfig(process);
 
-const result = spawn.sync(resolveBin("eslint"), config, {
+spawn.sync(resolveBin("eslint"), config, {
   stdio: "inherit",
   env: {
     ...process.env,

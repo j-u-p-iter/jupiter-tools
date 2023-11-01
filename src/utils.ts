@@ -182,7 +182,7 @@ const resolveJupiterScripts = () =>
   packageData.name === "@jupiter-tools/scripts"
     ? require.resolve("../../").replace(process.cwd(), ".")
     : resolveBin("@jupiter-tools/scripts", {
-        executable: "jupiter-scripts"
+        executable: "jupiter-scripts",
       });
 
 export {

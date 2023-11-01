@@ -10,4 +10,4 @@ const result = spawn.sync(resolveBin("typescript", { executable: "tsc" }), confi
   stdio: "inherit",
 });
 
-//result.status !== null && process.exit(result.status);
+result.status !== null && process.exit(result.status);
