@@ -7,10 +7,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const pathToPackageExecutable = path.join(__dirname, "../dist/lib/index.js");
 
-const runPackagePreCommit = () => {
+const runPackageCommit = () => {
   spawn.sync(
     "node",
-    [pathToPackageExecutable, "precommit", ...process.argv.slice(2)],
+    [pathToPackageExecutable, "commit", ...process.argv.slice(2)],
     {
       stdio: "inherit",
     },
@@ -27,4 +27,4 @@ if (!existsSync(pathToPackageExecutable)) {
   runBuild();
 }
 
-runPackagePreCommit();
+runPackageCommit();
