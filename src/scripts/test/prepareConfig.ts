@@ -43,7 +43,7 @@ export const prepareConfig = (process: any) => {
    *
    */
 
-  const watchMode = parsedArgs.watch ? ["watch"] : ["run"];
+  const watchMode = parsedArgs.watch ? ["--watch"] : ["--run"];
 
   /**
    * Update snapshots
@@ -77,7 +77,9 @@ export const prepareConfig = (process: any) => {
    * jupiter-scripts test --findRelatedTests
    */
 
-  const findRelatedTests = parsedArgs.findRelatedTests ? ["related"] : [];
+  const findRelatedTests = parsedArgs.findRelatedTests
+    ? ["related", parsedArgs.findRelatedTests]
+    : [];
 
   /**
    * Add path to the location (file/folder) to test

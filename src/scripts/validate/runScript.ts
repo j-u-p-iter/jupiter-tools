@@ -4,7 +4,7 @@ import { resolveBin } from "../../utils.js";
 
 import { prepareConfig } from "./prepareConfig.js";
 
-const config = prepareConfig(process);
+const config = prepareConfig();
 
 const result = spawn.sync(resolveBin("concurrently"), config, {
   stdio: "inherit",
