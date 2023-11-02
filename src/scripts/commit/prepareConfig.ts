@@ -36,15 +36,5 @@ export const prepareConfig = (process: any) => {
 
   const config = useBuiltinConfig ? builtinConfig : defaultConfig;
 
-  /**
-   * Does not allow empty git commits (like adding empty new lines, for example)
-   *
-   * Usage:
-   *
-   * jupiter-scripts commit --no-empty
-   */
-
-  const allowEmptyGitCommit = parsedArgs.noEmpty ? [] : ["--allow-empty"];
-
-  return [...config, ...allowEmptyGitCommit];
+  return config;
 };
