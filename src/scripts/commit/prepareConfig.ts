@@ -13,7 +13,7 @@ export const prepareConfig = (process: any) => {
    *
    * Usage:
    *
-   * jupiter-scripts precommit --config ./path/to/lint-staged.js
+   * jupiter-scripts commit --config ./path/to/lint-staged.js
    *
    */
 
@@ -36,5 +36,15 @@ export const prepareConfig = (process: any) => {
 
   const config = useBuiltinConfig ? builtinConfig : defaultConfig;
 
-  return config;
+  /**
+   * Does not allow empty git commits (like adding empty new lines, for example)
+   *
+   * Usage:
+   *
+   * jupiter-scripts commit --no-empty
+   */
+
+  const allowEmptyGitCommit = parsedArgs.noEmpty ? [] : ["--allow-empty"];
+
+  return [...config, ...allowEmptyGitCommit];
 };
