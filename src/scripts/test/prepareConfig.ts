@@ -77,9 +77,7 @@ export const prepareConfig = (process: any) => {
    * jupiter-scripts test --findRelatedTests
    */
 
-  const findRelatedTests = parsedArgs.findRelatedTests
-    ? ["related", parsedArgs.findRelatedTests]
-    : [];
+  const findRelatedTests = parsedArgs.findRelatedTests ? ["related"] : [];
 
   /**
    * Add path to the location (file/folder) to test

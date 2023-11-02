@@ -3,10 +3,8 @@ import { resolveJupiterScripts } from "../utils.js";
 const jupiterScripts = resolveJupiterScripts();
 
 export default {
-  "*.{ts,tsx}": (fileNames: string[]) => [
+  "*.{ts,tsx}": [
     `${jupiterScripts} lint`,
-    `${jupiterScripts} test --passWithNoTests --findRelatedTests ${fileNames.join(
-      ",",
-    )}`,
+    `${jupiterScripts} test --passWithNoTests --findRelatedTests`,
   ],
 };

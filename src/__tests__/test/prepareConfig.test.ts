@@ -39,8 +39,8 @@ describe("prepareConfig", () => {
     it("is disabled by default", () => {
       const config = prepareConfig(process);
 
-      expect(config).toEqual(expect.arrayContaining(["run"]));
-      expect(config).toEqual(expect.not.arrayContaining(["watch"]));
+      expect(config).toEqual(expect.arrayContaining(["--run"]));
+      expect(config).toEqual(expect.not.arrayContaining(["--watch"]));
     });
 
     it("is enabled with the --watch option", () => {
@@ -48,8 +48,8 @@ describe("prepareConfig", () => {
 
       const config = prepareConfig(process);
 
-      expect(config).toEqual(expect.not.arrayContaining(["run"]));
-      expect(config).toEqual(expect.arrayContaining(["watch"]));
+      expect(config).toEqual(expect.not.arrayContaining(["--run"]));
+      expect(config).toEqual(expect.arrayContaining(["--watch"]));
     });
   });
 
