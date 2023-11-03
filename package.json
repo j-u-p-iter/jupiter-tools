@@ -13,7 +13,7 @@
   },
   "scripts": {
     "build_internal": "tsc --project tsconfig.build.json",
-    "build": "node scripts/build.js & chmod 777 ./dist/lib/index.js",
+    "build": "node scripts/build.js",
     "build:watch": "yarn run build --watch",
     "lint": "node scripts/lint.js",
     "lint:watch": "yarn run lint --watch",
