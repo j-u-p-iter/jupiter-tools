@@ -39,7 +39,10 @@ jobs:
         run: echo ${{ secrets.GH_TOKEN }}
 
       - name: Release package
+        uses: cycjimmy/semantic-release-action@v2
+        with:
+          semantic_version: 18
+          debug: true
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release
