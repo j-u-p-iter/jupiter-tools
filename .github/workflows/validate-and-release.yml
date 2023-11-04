@@ -35,6 +35,9 @@ jobs:
       - name: Validate package
         run: yarn validate
 
+      - name: Print credentials
+        run: echo ${{ secrets.GITHUBS_TOKEN }}
+
       - name: Release package
         uses: cycjimmy/semantic-release-action@v4
         env:
