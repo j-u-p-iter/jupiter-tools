@@ -44,5 +44,5 @@ jobs:
           semantic_version: 18
           debug: true
         env:
-          GH_TOKEN: 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
+          GH_TOKEN: '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'
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
