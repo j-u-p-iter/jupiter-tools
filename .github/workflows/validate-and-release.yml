@@ -29,8 +29,14 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Build packages
+      - name: Build package
         run: yarn build_internal
 
       - name: Validate package
         run: yarn validate
+
+      - name: Release package
+        uses: cycjimmy/semantic-release-action@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
