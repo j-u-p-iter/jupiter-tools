@@ -8,6 +8,10 @@
   "publishConfig": {
     "access": "public"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/j-u-p-iter/jupiter-tools"
+  },
   "bin": {
     "jupiter-scripts": "dist/lib/index.js"
   },
