@@ -179,9 +179,9 @@ const tryIt = (callback: () => void, errorMessage?: string) => {
 };
 
 const resolveJupiterScripts = () =>
-  packageData.name === "@jupiter-tools/scripts"
+  packageData.name === "@j.u.p.iter/scripts"
     ? require.resolve("../../").replace(process.cwd(), ".")
-    : resolveBin("@jupiter-tools/scripts", {
+    : resolveBin("@j.u.p.iter/scripts", {
         executable: "jupiter-scripts",
       });
 
