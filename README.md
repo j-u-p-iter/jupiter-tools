@@ -6,7 +6,7 @@ For the linting purposes the ESLint is used under the hood.
 
 ### Configuration
 
-The script is using the default config from @jupiter-tools/eslint-config-jupiter package.
+The script is using the default config from /src/configs/eslint.config.js file of the project.
 
 This config contains the prefferable common configurations for all my projects.
 
@@ -68,11 +68,11 @@ It's possible to provide custom paths to the .ts files to lint only them:
 jupiter-scripts lint ./custom/path/to/lint/**/*.ts
 ```
 
-It's important to point out that the predefined ESlint config from the ./config derictory contains `files` property. 
+It's important to point out that the predefined ESlint config from the ./configs derictory contains `files` property. 
 This property contains the glob of all possible files to lint. If this glob doesn't match with the files to lint
 provided to the script they won't be linted.
 
-Also it's important to point out that dist and node_modules folder are not linted thanks to the `ignores` field of the default ESlint config.
+Also it's important to point out that `dist` and `node_modules` folder are not linted thanks to the `ignores` field of the default ESlint config.
 
 ## jupiter-scripts test
 

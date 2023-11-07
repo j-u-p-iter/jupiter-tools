@@ -61,12 +61,12 @@ export const prepareConfig = (process: any) => {
    *
    * Usage:
    *
-   * jupiter-scripts test --passWithNoTests
+   * jupiter-scripts test --pass-with-no-tests
    *
    */
 
   const passWithNoTests = parsedArgs.passWithNoTests
-    ? ["--passWithNoTests"]
+    ? ["--pass-with-no-tests"]
     : [];
 
   /**
@@ -85,6 +85,7 @@ export const prepareConfig = (process: any) => {
    * Usage:
    *
    * jupiter-scripts test some/path/to/test.ts
+   *
    */
 
   const pathToTest = parsedArgs._;

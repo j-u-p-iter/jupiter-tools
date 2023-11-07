@@ -68,4 +68,20 @@ describe("prepareConfig", () => {
       );
     });
   });
+
+  describe("--findRelatedTests option", () => {
+    it("is not passed by default", () => {
+      expect(prepareConfig(process)).toEqual(
+        expect.not.arrayContaining(["related"]),
+      );
+    });
+
+    it("related is returned when the --findRelatedTests option passed to the script", () => {
+      process.argv = ["node", "vitest", "--findRelatedTests"];
+
+      expect(prepareConfig(process)).toEqual(
+        expect.arrayContaining(["related"]),
+      );
+    });
+  });
 });

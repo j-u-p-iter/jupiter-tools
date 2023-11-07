@@ -5,6 +5,6 @@ const jupiterScripts = resolveJupiterScripts();
 export default {
   "*.{ts,tsx}": [
     `${jupiterScripts} lint`,
-    `${jupiterScripts} test --passWithNoTests --findRelatedTests`,
+    `${jupiterScripts} test --pass-with-no-tests --findRelatedTests`,
   ],
 };
