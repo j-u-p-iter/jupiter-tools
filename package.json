@@ -1,5 +1,5 @@
 {
-  "name": "@jupiter-tools/scripts",
+  "name": "@jupiter/scripts",
   "version": "0.0.0-semantically-released",
   "description": "Handy-dandy scripts",
   "type": "module",
