@@ -38,15 +38,14 @@ export const setUpTsConfigs = () => {
 
   const pathToBuildTsConfig = getPathToBuildTsConfig();
 
-  console.log("pathToBaseTsConfig:", pathToBaseTsConfig);
-
-  console.log("pathToBuildTsConfig:", pathToBuildTsConfig);
-
   /**
    * If config was already set up
    *   return from method.
    */
-  if (existsSync(pathToBaseTsConfig)) {
+  if (
+    pathToBaseTsConfig.includes(__dirname) &&
+    existsSync(pathToBaseTsConfig)
+  ) {
     return;
   }
 
