@@ -69,7 +69,7 @@ describe("prepareConfig", () => {
     });
   });
 
-  describe("--findRelatedTests option", () => {
+  describe("--find-related-tests option", () => {
     it("is not passed by default", () => {
       expect(prepareConfig(process)).toEqual(
         expect.not.arrayContaining(["related"]),
@@ -77,7 +77,7 @@ describe("prepareConfig", () => {
     });
 
     it("related is returned when the --findRelatedTests option passed to the script", () => {
-      process.argv = ["node", "vitest", "--findRelatedTests"];
+      process.argv = ["node", "vitest", "--find-related-tests"];
 
       expect(prepareConfig(process)).toEqual(
         expect.arrayContaining(["related"]),

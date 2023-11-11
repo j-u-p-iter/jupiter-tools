@@ -74,10 +74,19 @@ export const prepareConfig = (process: any) => {
    *
    * Usage:
    *
-   * jupiter-scripts test --findRelatedTests
+   * jupiter-scripts test --find-related-tests
    */
 
-  const findRelatedTests = parsedArgs.findRelatedTests ? ["related"] : [];
+  const originalPaths =
+    typeof parsedArgs.findRelatedTests === "boolean"
+      ? null
+      : parsedArgs.findRelatedTests;
+  const findRelatedTests =
+    parsedArgs.findRelatedTests && originalPaths
+      ? ["related", originalPaths]
+      : parsedArgs.findRelatedTests
+      ? ["related"]
+      : [];
 
   /**
    * Add path to the location (file/folder) to test
@@ -90,7 +99,7 @@ export const prepareConfig = (process: any) => {
 
   const pathToTest = parsedArgs._;
 
-  return [
+  const resultConfig = [
     ...watchMode,
     ...config,
     ...updateSnapshot,
@@ -98,4 +107,6 @@ export const prepareConfig = (process: any) => {
     ...findRelatedTests,
     ...pathToTest,
   ];
+
+  return resultConfig;
 };

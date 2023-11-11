@@ -57,6 +57,7 @@ const spawnScript = async () => {
 
 const runScript = () => {
   if (scriptName) {
+    console.log("SCRIPT_NAME:", scriptName);
     /**
      * Scripts rely on this config. They expect it to be configured to
      *   work properly.

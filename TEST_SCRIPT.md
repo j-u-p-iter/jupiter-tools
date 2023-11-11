@@ -51,3 +51,14 @@ In this case the script quietly stop without any warnings/errors.
 
 It can be useful to add in CI environment. Also it's necessary to use this option on the precommit step, where only staged
 files are tested. And if there are no test files, no test files will be sent to the script to test.
+
+## Find related tests
+
+By default the test script is running for all test files it could find in the package. However there are situations
+when it's necessary to run only the tests related to the updated files. It's very useful to do during the precommit step, for example,
+when only tests related to the updated files should be run. For such type of cases the `--find-related-tests` option should
+be used:
+
+```
+jupiter-scripts test --find-related-tests
+```
