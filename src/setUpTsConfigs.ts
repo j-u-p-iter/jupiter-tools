@@ -38,6 +38,10 @@ export const setUpTsConfigs = () => {
 
   const pathToBuildTsConfig = getPathToBuildTsConfig();
 
+  console.log("pathToBaseTsConfig:", pathToBaseTsConfig);
+
+  console.log("pathToBuildTsConfig:", pathToBuildTsConfig);
+
   /**
    * If config was already set up
    *   return from method.
