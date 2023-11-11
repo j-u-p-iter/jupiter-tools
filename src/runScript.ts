@@ -40,7 +40,7 @@ const spawnScript = async () => {
     throw new Error(`Unknown script "${scriptName}"`);
   }
 
-  const { signal, status } = spawn.sync(executor!, [scriptPath, ...args], {
+  const result = spawn.sync(executor!, [scriptPath, ...args], {
     stdio: "inherit",
     env: {
       ...process.env,
@@ -48,16 +48,17 @@ const spawnScript = async () => {
     },
   });
 
-  if (signal) {
-    handleSpawnSignal(scriptName, signal);
+  console.log("RESULT:", result);
+
+  if (result.signal) {
+    handleSpawnSignal(scriptName, result.signal);
   } else {
-    process.exit(status || 0);
+    process.exit(result.status || 0);
   }
 };
 
 const runScript = () => {
   if (scriptName) {
-    console.log("SCRIPT_NAME:", scriptName);
     /**
      * Scripts rely on this config. They expect it to be configured to
      *   work properly.
