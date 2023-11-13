@@ -1,6 +1,5 @@
 import path from "path";
 
-import { existsSync } from "node:fs";
 import { writeJsonFileSync } from "write-json-file";
 
 import { baseTsConfigContent } from "./configs/tsconfig.js";
@@ -37,21 +36,6 @@ export const setUpTsConfigs = () => {
   const pathToBaseTsConfig = getPathToBaseTsConfig();
 
   const pathToBuildTsConfig = getPathToBuildTsConfig();
-
-  console.log("pathToBaseTsConfig:", pathToBaseTsConfig);
-  console.log("pathToBuildTsConfig:", pathToBuildTsConfig);
-  console.log("__dirname:", __dirname);
-
-  /**
-   * If config was already set up
-   *   return from method.
-   */
-  if (
-    pathToBaseTsConfig.includes(__dirname) &&
-    existsSync(pathToBaseTsConfig)
-  ) {
-    return;
-  }
 
   /**
    * Prepare tsconfig.base.json

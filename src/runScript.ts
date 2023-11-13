@@ -48,8 +48,6 @@ const spawnScript = async () => {
     },
   });
 
-  console.log("RESULT:", result);
-
   if (result.signal) {
     handleSpawnSignal(scriptName, result.signal);
   } else {
