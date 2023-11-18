@@ -1,4 +1,4 @@
-import { spawnSync } from "node:child_process";
+import spawn from "cross-spawn";
 
 import { resolveBin } from "../../utils.js";
 
@@ -6,11 +6,11 @@ import { prepareConfig } from "./prepareConfig.js";
 
 const config = prepareConfig(process);
 
-const result = spawnSync(
+const result = spawn.sync(
   resolveBin("typescript", { executable: "tsc" }),
   config,
   {
-    stdio: [process.stdin, process.stdout, process.stderr],
+    stdio: "inherit",
   },
 );
 

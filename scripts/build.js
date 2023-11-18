@@ -22,10 +22,7 @@ export const runInternalBuild = () => {
   });
 };
 
-const pathToInternalExecutable = path.join(
-  __dirname,
-  "../__dist__/lib/index.js",
-);
+const pathToInternalExecutable = path.join(__dirname, "../__dist__/index.js");
 
 if (!existsSync(pathToInternalExecutable)) {
   runInternalBuild();

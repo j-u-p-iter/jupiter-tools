@@ -18,12 +18,10 @@
     "pretty": true,
     "forceConsistentCasingInFileNames": true,
     "types": ["vitest/globals"],
-    "outDir": "__dist__/lib",
-    "declarationDir": "__dist__/types"
+    "outDir": "__dist__"
   },
   "compilerOptions": {
-    "outDir": "__dist__/lib",
-    "declarationDir": "__dist__/types"
+    "outDir": "__dist__"
   },
   "include": ["src"],
   "exclude": ["**/__tests__/"]

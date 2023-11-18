@@ -18,7 +18,6 @@ export const baseTsConfigContent = {
     pretty: true,
     forceConsistentCasingInFileNames: true,
     types: ["vitest/globals"],
-    outDir: "dist/lib",
-    declarationDir: "dist/types",
+    outDir: "dist",
   },
 };
