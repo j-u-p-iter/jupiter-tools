@@ -180,7 +180,7 @@ const tryIt = (callback: () => void, errorMessage?: string) => {
 
 const resolveJupiterScripts = () =>
   packageData.name === "@j.u.p.iter/scripts"
-    ? require.resolve("../../").replace(process.cwd(), ".")
+    ? require.resolve("../").replace(process.cwd(), ".")
     : resolveBin("@j.u.p.iter/scripts", {
         executable: "jupiter-scripts",
       });

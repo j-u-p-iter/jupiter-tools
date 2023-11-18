@@ -6,7 +6,7 @@ import { existsSync } from "node:fs";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export const runScript = (scriptName) => {
-  const pathToPackageExecutable = path.join(__dirname, "../dist/lib/index.js");
+  const pathToPackageExecutable = path.join(__dirname, "../dist/index.js");
 
   const runPackageScript = () => {
     spawn.sync(

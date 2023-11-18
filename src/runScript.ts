@@ -13,7 +13,7 @@ const __dirname: string = path.dirname(fileURLToPath(import.meta.url));
 const require = createRequire(import.meta.url);
 
 /**
- * executor - programm, that run our binary (npx, node, ts-node). Binary, that starts another binary;
+ * executor - programm, that run our binary (npx, node, ts-node). Binary, that starts another binary (child process);
  * bin - name (jupiter-scripts) or path (lib (node lib)) of/to our binary;
  * scriptName - name of script we want to execute with our binary);
  * args - array of arguments, that should be passed to script we try to run with binary.

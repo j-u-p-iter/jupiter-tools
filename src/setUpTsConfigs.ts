@@ -56,8 +56,7 @@ export const setUpTsConfigs = () => {
   writeJsonFileSync(pathToBuildTsConfig, {
     extends: "./tsconfig.base.json",
     compilerOptions: {
-      declarationDir: fromRoot("dist/types"),
-      outDir: fromRoot("dist/lib"),
+      outDir: fromRoot("dist"),
     },
     exclude: ["**/__tests__/"].map((excludePath) =>
       path.join(fromRoot("."), excludePath),

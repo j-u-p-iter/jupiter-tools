@@ -27,6 +27,16 @@
     "commit": "node scripts/commit.js",
     "rimraf": "rimraf __dist__ dist"
   },
+  "files": [
+    "README.md",
+    "ABOUT_THE_PROJECT.md",
+    "CI_CD.md",
+    "ES_LINT_CONFIG.md",
+    "LINT_SCRIPT.md",
+    "TEST_SCRIPT.md",
+    "package.json",
+    "dist"
+  ],
   "volta": {
     "node": "18.17.1"
   },
