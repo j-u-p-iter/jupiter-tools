@@ -44,7 +44,7 @@ export const setUpTsConfigs = () => {
   writeJsonFileSync(pathToBaseTsConfig, {
     ...baseTsConfigContent,
     include: [fromRoot("src")],
-    exclude: ["coverage", "node_modules"].map((excludePath) =>
+    exclude: ["coverage", "node_modules", "dist"].map((excludePath) =>
       path.join(fromRoot("."), excludePath),
     ),
   });
