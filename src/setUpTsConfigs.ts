@@ -58,7 +58,7 @@ export const setUpTsConfigs = () => {
     compilerOptions: {
       outDir: fromRoot("dist"),
     },
-    exclude: ["**/__tests__/"].map((excludePath) =>
+    exclude: ["**/__tests__/", "dist"].map((excludePath) =>
       path.join(fromRoot("."), excludePath),
     ),
   });
