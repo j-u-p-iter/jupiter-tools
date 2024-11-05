@@ -55,4 +55,16 @@ export default [
       "@typescript-eslint/ban-ts-comment": "off",
     },
   },
+  /**
+   * The reason for the "no-undef" is mentioned here:
+   *   https://typescript-eslint.io/troubleshooting/faqs/eslint#i-get-errors-from-the-no-undef-rule-about-global-variables-not-being-defined-even-though-there-are-no-typescript-errors
+   *
+   */
+  {
+    files: ["**/*.ts", "**/*.tsx"],
+    ignores: ["dist/**", "__dist__/**", "node_modules/**"],
+    rules: {
+      "no-undef": "off",
+    },
+  },
 ] as Linter.FlatConfig;
