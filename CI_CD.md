@@ -47,3 +47,11 @@ Next we are installing the dependencies with yarn. Yarn itself will be installed
 Corepack knows which package manager version to use thanks to the standard packageManager field in your package.json
 Also the yarn to be installed properly some files from the .yarn folder should be committed. To do that the .gitignore file should be updated
 appropriately.
+
+In case CI_CD pipeline fails with the issue "GitHub token is invalid" there is a big probability that the previous GitHub personal access token is expired and it's necessary to
+create a new one. To do that it's necessary to go through the next set of steps:
+
+1. Create a new GitHub personal access token. How to do it is described here: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens.
+2. Update personal access token here: https://github.com/settings/tokens.
+
+After the steps mentioned above applied the issue should be fixed.
