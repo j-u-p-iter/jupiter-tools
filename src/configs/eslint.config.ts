@@ -27,9 +27,16 @@ const tsConfigPath = fs.existsSync(pathToBuilinConfig)
  *   with the files, listed in this property.
  */
 export default [
+  /**
+   * If ignores is used without any other keys in the configuration object,
+   *   then the patterns act as global ignores among all configurations objects of the config.
+   */
+  {
+    ignores: ["dist/**", "__dist__/**", "node_modules/**", ".yarn/**"],
+  },
+
   {
     files: ["**/*.ts", "**/*.js", "**/*.tsx", "**/*.jsx"],
-    ignores: ["dist/**", "__dist__/**", "node_modules/**"],
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
@@ -55,6 +62,7 @@ export default [
       "@typescript-eslint/ban-ts-comment": "off",
     },
   },
+
   /**
    * The reason for the "no-undef" is mentioned here:
    *   https://typescript-eslint.io/troubleshooting/faqs/eslint#i-get-errors-from-the-no-undef-rule-about-global-variables-not-being-defined-even-though-there-are-no-typescript-errors
@@ -62,7 +70,6 @@ export default [
    */
   {
     files: ["**/*.ts", "**/*.tsx"],
-    ignores: ["dist/**", "__dist__/**", "node_modules/**"],
     rules: {
       "no-undef": "off",
     },
