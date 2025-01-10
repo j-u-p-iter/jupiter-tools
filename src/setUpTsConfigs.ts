@@ -4,7 +4,7 @@ import { writeJsonFileSync } from "write-json-file";
 
 import { baseTsConfigContent } from "./configs/tsconfig.js";
 
-import { fromRoot, getDirName } from "./utils.js";
+import { hasRootFile, fromRoot, getDirName } from "./utils.js";
 
 const __dirname = getDirName(import.meta.url);
 
@@ -37,13 +37,27 @@ export const setUpTsConfigs = () => {
 
   const pathToBuildTsConfig = getPathToBuildTsConfig();
 
+  let includePath = "";
+
+  if (hasRootFile("src")) {
+    includePath = fromRoot("src");
+  } else if (hasRootFile("packages")) {
+    includePath = fromRoot("packages");
+  }
+
+  if (!includePath) {
+    throw new Error(
+      "Either 'src' or 'packages' directory should contain source code of the package. Neither of them was found.",
+    );
+  }
+
   /**
    * Prepare tsconfig.base.json
    *
    */
   writeJsonFileSync(pathToBaseTsConfig, {
     ...baseTsConfigContent,
-    include: [fromRoot("src")],
+    include: [includePath],
     exclude: ["coverage", "node_modules", "dist"].map((excludePath) =>
       path.join(fromRoot("."), excludePath),
     ),
