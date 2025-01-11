@@ -14,6 +14,16 @@ To manage Node version we use the tool called Volta. The full description of thi
 
 But before we get familiar with the commands, let's let breifly at the principles underneath of this tool. Let's look how this tool works. It's always very useful to have at least breif understanding of how this/that tool works since it makes it easier to understand the set up process and also it can help if you need sometime to debug this tool.
 
+Volta uses `volta.node` field in the `package.json` file to detect the node version this/that project expects. It can look like that:
 
+```
+"volta": {
+  "node": "20.16.0"
+}
+```
+
+When the script, which requires Node, has run "volta" searches for the executables theoretically could be installed previously. If there is necessary version, it just uses it. If there is no required version, it downloads it to the system and starts using it. The next time, when another script is run, it already has this Node version preinstalled, so it just uses it.
+
+The fact, that the Node version is stored in the package.json allows us to bind Node version to the project. So, the project will also be using this exact version no matter what environment it's run for.
 
 ## Managing package manager (pnpm in our case)
