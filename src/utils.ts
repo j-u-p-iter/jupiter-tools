@@ -23,7 +23,8 @@ const getAppDirectory = (): any => path.dirname(packagePath);
 
 const fromRoot = (...args: any[]): any => path.join(getAppDirectory(), ...args);
 
-const hasRootFile = (...args: any[]): any => fs.existsSync(fromRoot(...args));
+const isInRootFolder = (...args: any[]): any =>
+  fs.existsSync(fromRoot(...args));
 
 const hasPkgProp = (props: any) =>
   arrify(props).some((prop: any) => has(packageData, prop));
@@ -195,7 +196,7 @@ export {
   arrayToString,
   getAppDirectory,
   fromRoot,
-  hasRootFile,
+  isInRootFolder,
   hasPkgProp,
   ifHasAnyDependency,
   generateExternals,

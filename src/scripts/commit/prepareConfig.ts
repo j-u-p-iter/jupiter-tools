@@ -1,6 +1,11 @@
 import path from "path";
 
-import { parseArgs, hasRootFile, hasPkgProp, getDirName } from "../../utils.js";
+import {
+  parseArgs,
+  isInRootFolder,
+  hasPkgProp,
+  getDirName,
+} from "../../utils.js";
 
 const __dirname = getDirName(import.meta.url);
 
@@ -19,8 +24,8 @@ export const prepareConfig = (process: any) => {
 
   const useBuiltinConfig =
     parsedArgs.config ||
-    hasRootFile(".lintstagedrc") ||
-    hasRootFile("lint-staged.config.js") ||
+    isInRootFolder(".lintstagedrc") ||
+    isInRootFolder("lint-staged.config.js") ||
     hasPkgProp("lint-staged");
 
   const builtinConfig = parsedArgs.config

@@ -4,7 +4,7 @@ import { writeJsonFileSync } from "write-json-file";
 
 import { baseTsConfigContent } from "./configs/tsconfig.js";
 
-import { hasRootFile, fromRoot, getDirName } from "./utils.js";
+import { isInRootFolder, fromRoot, getDirName } from "./utils.js";
 
 const __dirname = getDirName(import.meta.url);
 
@@ -39,9 +39,9 @@ export const setUpTsConfigs = () => {
 
   let includePath = "";
 
-  if (hasRootFile("src")) {
+  if (isInRootFolder("src")) {
     includePath = fromRoot("src");
-  } else if (hasRootFile("packages")) {
+  } else if (isInRootFolder("packages")) {
     includePath = fromRoot("packages");
   }
 

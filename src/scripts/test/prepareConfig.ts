@@ -1,6 +1,6 @@
 import path from "path";
 
-import { parseArgs, hasRootFile, getDirName } from "../../utils.js";
+import { parseArgs, isInRootFolder, getDirName } from "../../utils.js";
 
 const __dirname = getDirName(import.meta.url);
 
@@ -16,7 +16,8 @@ export const prepareConfig = (process: any) => {
    * jupiter-scripts test --config ./path/to/config.js
    */
 
-  const useBuiltinConfig = parsedArgs.config || hasRootFile("vitest.config.ts");
+  const useBuiltinConfig =
+    parsedArgs.config || isInRootFolder("vitest.config.ts");
 
   const builtinConfig = parsedArgs.config
     ? ["--config", parsedArgs.config]

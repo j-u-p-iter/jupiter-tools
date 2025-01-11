@@ -1,6 +1,6 @@
 import path from "path";
 
-import { parseArgs, hasRootFile, getDirName } from "../../utils.js";
+import { parseArgs, isInRootFolder, getDirName } from "../../utils.js";
 
 const __dirname = getDirName(import.meta.url);
 
@@ -16,7 +16,8 @@ export const prepareConfig = (process: any) => {
    * jupiter-scripts lint --config ./path/to/config.js
    *
    */
-  const useBuiltinConfig = parsedArgs.config || hasRootFile("eslint.config.js");
+  const useBuiltinConfig =
+    parsedArgs.config || isInRootFolder("eslint.config.js");
 
   const builtinConfig = parsedArgs.config
     ? ["--config", parsedArgs.config]

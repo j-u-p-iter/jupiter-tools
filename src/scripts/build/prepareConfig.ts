@@ -1,4 +1,4 @@
-import { parseArgs, hasRootFile } from "../../utils.js";
+import { parseArgs, isInRootFolder } from "../../utils.js";
 
 import { getPathToBuildTsConfig } from "../../setUpTsConfigs.js";
 
@@ -15,7 +15,7 @@ export const prepareConfig = (process: any) => {
    *
    */
 
-  const useBuiltinConfig = parsedArgs.config || hasRootFile("tsconfig.json");
+  const useBuiltinConfig = parsedArgs.config || isInRootFolder("tsconfig.json");
 
   const builtinConfig = parsedArgs.config
     ? ["--project", parsedArgs.config]
