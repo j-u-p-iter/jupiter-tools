@@ -92,6 +92,10 @@ This one will do several things:
 }
 ```
 
+Since now every time you run any executable in the project's folder, volta will be using exactly this Node version for all of them (babel, webpack and etc.).
+
+What can be confusing is if you type `node --version` and if you use `nvm` to manage Node on your machine you'll see the version of the Node installed in the NVM toolchain, but not in the Volta's one. However, if you want to be sure that you are using correct version of the Node, you can log to the console the `process.version`, which contains information about the current Node version used by the process, you'll see the version, managed by the Volta. It will be the same as the version stored in the package.json.
+
 ## Managing package manager (pnpm in our case)
 
 https://www.trevorlasn.com/blog/corepack-nodejs
