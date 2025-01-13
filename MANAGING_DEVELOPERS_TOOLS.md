@@ -26,7 +26,32 @@ When the script, which requires Node, has run "volta" searches for the executabl
 
 The fact, that the Node version is stored in the package.json allows us to bind Node version to the project. So, the project will also be using this exact version no matter what environment it's run for.
 
-There is such a thing as a Volta toolchain. It's a place in the OS reserved by the Volta, which is used to store different executable Volta manages. It's important to mention here, that if, for example, you are using the nvm to manage the Node version, the Node execlutables, installed by the nvm won't be reused by the Volta manager. Volta will install new Node executables with the same version even if there are the same executables installed by the nvm in the OS. 
+There is such a thing as a Volta toolchain. It's a place in the OS reserved by the Volta, which is used to store different executable Volta manages. It's important to mention here, that if, for example, you are using the nvm to manage the Node version, the Node execlutables, installed by the nvm won't be reused by the Volta manager. Volta will install new Node executables with the same version even if there are the same executables installed by the nvm in the OS.
+
+To see the place, where nvm install node, you can run the next command:
+
+```
+nvm which v20.14.0
+```
+
+The example of the path can look like that:
+
+```
+/Users/a1234/.nvm/versions/node/v20.14.0/bin/node
+```
+
+As you can see the the Node is installed under the ~/.nvm directory.
+
+The same way we can check where Volta stores Node and other executables:
+
+```
+volta which node
+```
+If you run this command in the project's folder which uses volta to manage Node executable, you can see approximately such type of path:
+
+```
+/Users/a1234/.volta/tools/image/node/20.14.0/bin/node
+```
 
 ## Managing package manager (pnpm in our case)
 
