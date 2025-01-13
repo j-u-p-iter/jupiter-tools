@@ -107,6 +107,7 @@ Another way to start managing Node version in the project by Volta is to update 
 After that if you start any Node process inside of the project's folder with this update in the package.json the next things will happen:
 
 1. If the version of the Node, mentioned in the package.json, is already installed in the OS, Volta won't download anything. And if there's no such type of version, it will download it and store it in the toolchain.
+2. Every time since than the new Node process is run, it will be using the Node with the version, mentioned in the package.json.
 
 ## Managing package manager (pnpm in our case)
 
