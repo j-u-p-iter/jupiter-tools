@@ -96,6 +96,18 @@ Since now every time you run any executable in the project's folder, volta will 
 
 What can be confusing is if you type `node --version` and if you use `nvm` to manage Node on your machine you'll see the version of the Node installed in the NVM toolchain, but not in the Volta's one. However, if you want to be sure that you are using correct version of the Node, you can log to the console the `process.version`, which contains information about the current Node version used by the process, you'll see the version, managed by the Volta. It will be the same as the version stored in the package.json.
 
+Another way to start managing Node version in the project by Volta is to update the package.json manually with the info like:
+
+```
+"volta": {
+  "node": "18.20.5"
+}
+```
+
+After that if you start any Node process inside of the project's folder with this update in the package.json the next things will happen:
+
+1. If the version of the Node, mentioned in the package.json, is already installed in the OS, Volta won't download anything. And if there's no such type of version, it will download it and store it in the toolchain.
+
 ## Managing package manager (pnpm in our case)
 
 https://www.trevorlasn.com/blog/corepack-nodejs
