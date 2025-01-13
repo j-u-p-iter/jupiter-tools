@@ -109,6 +109,14 @@ After that if you start any Node process inside of the project's folder with thi
 1. If the version of the Node, mentioned in the package.json, is already installed in the OS, Volta won't download anything. And if there's no such type of version, it will download it and store it in the toolchain.
 2. Every time since than the new Node process is run, it will be using the Node with the version, mentioned in the package.json.
 
+Let's mention one more Volta's command. It looks like that:
+
+```
+volta install node@18
+```
+
+This command install Node executable in the Volta toolchain, but doesn't bind Node executable version to the project. Taking into account that Volta installs executables automatically, when it binds executable to the project and starts using it, the usage of the `volta install` command is pretty rare.
+
 ## Managing package manager (pnpm in our case)
 
 https://www.trevorlasn.com/blog/corepack-nodejs
