@@ -26,6 +26,8 @@ When the script, which requires Node, has run "volta" searches for the executabl
 
 The fact, that the Node version is stored in the package.json allows us to bind Node version to the project. So, the project will also be using this exact version no matter what environment it's run for.
 
+There is such a thing as a Volta toolchain. It's a place in the OS reserved by the Volta, which is used to store different executable Volta manages. It's important to mention here, that if, for example, you are using the nvm to manage the Node version, the Node execlutables, installed by the nvm won't be reused by the Volta manager. Volta will install new Node executables with the same version even if there are the same executables installed by the nvm in the OS. 
+
 ## Managing package manager (pnpm in our case)
 
 https://www.trevorlasn.com/blog/corepack-nodejs
