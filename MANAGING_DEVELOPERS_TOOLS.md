@@ -53,6 +53,20 @@ If you run this command in the project's folder which uses volta to manage Node 
 /Users/a1234/.volta/tools/image/node/20.14.0/bin/node
 ```
 
+So, as you can see from the path the such called Volta toolchain is stored under the `~/.volta` directory.
+
+Too see all the tools in the Volta toolchain Volta is managing in your OS you can use the next command:
+
+```
+volta list
+```
+
+You can see approximately something like that:
+
+<img width="626" alt="Screenshot 2025-01-13 at 20 39 51" src="https://github.com/user-attachments/assets/fde3ac5e-417a-47d0-9402-48cf3a76a95e" />
+
+When the Volta tool is installed in your OS, there are two possible ways how you can start managing Node version in the package.
+
 ## Managing package manager (pnpm in our case)
 
 https://www.trevorlasn.com/blog/corepack-nodejs
