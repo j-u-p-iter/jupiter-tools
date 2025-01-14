@@ -164,3 +164,8 @@ Another way to start managing pnpm version in the project by Corepack is to upda
 ```
 "packageManager": "pnpm@9.15.2"
 ```
+
+After that if you run pnpm script inside of the project's folder with this update in the package.json the next things will happen:
+
+1. If the version of pnpm, mentioned in the package.json, is already installed in the OS, Corepack won't download anything. And if there's no such type of version, it will download it and store it.
+2. Every time since than the pnpm script is run, it will be using the pnpm with the version, mentioned in the package.json.
