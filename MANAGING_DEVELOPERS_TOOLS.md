@@ -156,3 +156,11 @@ This one will do several things:
 ```
 "packageManager": "pnpm@9.15.2"
 ```
+
+Since now every time you run `pnpm` in the project's folder, Corepack will be using exactly this pnpm version.
+
+Another way to start managing pnpm version in the project by Corepack is to update the package.json manually with the info like:
+
+```
+"packageManager": "pnpm@9.15.2"
+```
