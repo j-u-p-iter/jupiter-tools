@@ -123,3 +123,36 @@ This command install Node executable in the Volta toolchain, but doesn't bind No
 Package manager version mismatches are a silent killer of productivity. You might not even realize it’s happening until you’re deep into debugging why your builds are failing. One developer uses Yarn v1, another uses v4, and someone else prefers pnpm. Each version brings its own lockfile format, resolution algorithms, and quirks.
 
 These inconsistencies lead to subtle bugs that are maddeningly hard to track down. A dependency might install fine with Yarn v1 but break with v4 due to different resolution strategies. Or your CI pipeline might use a different version than your local environment, causing builds to fail mysteriously.
+
+### Corepack
+
+Luckily there is a manager for the package manager, which is called `Corepack`. `Corepack` is distributed with default installs of Node.js.
+
+Since the `Corepack` is an experimental feature it should be explicitly enabled to have any effect. To do that run:
+
+```
+corepack enable
+```
+
+And just right after that the `corepack` will be managing the package managers for the project.
+
+The principle of how `Corepack` works very similar to the Volta's working principle.
+
+`Corepack` uses `packageManager` field from the package.json to figure out what package manager the project expects to use. And similar to Volta, there are two ways how `Corepack` can be set up in the project, using one of two possible ways:
+
+The first way is to run the command:
+
+```
+corepack use pnpm@9.15.2
+```
+
+By this command you ask Corepack to attach to your project the 9.15.2 version of pnpm.
+
+This one will do several things:
+
+1. If the 9.15.2 pnpm version is not installed by the Corepack previously, it will be installed there automatically.
+2. After that Corepack will update the package.json with the next info:
+
+```
+"packageManager": "pnpm@9.15.2"
+```
