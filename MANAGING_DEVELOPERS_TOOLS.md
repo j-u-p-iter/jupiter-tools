@@ -119,5 +119,7 @@ This command install Node executable in the Volta toolchain, but doesn't bind No
 
 ## Managing package manager (pnpm in our case)
 
-https://www.trevorlasn.com/blog/corepack-nodejs
-https://docs.volta.sh/guide/understanding
+### Introduction
+Package manager version mismatches are a silent killer of productivity. You might not even realize it’s happening until you’re deep into debugging why your builds are failing. One developer uses Yarn v1, another uses v4, and someone else prefers pnpm. Each version brings its own lockfile format, resolution algorithms, and quirks.
+
+These inconsistencies lead to subtle bugs that are maddeningly hard to track down. A dependency might install fine with Yarn v1 but break with v4 due to different resolution strategies. Or your CI pipeline might use a different version than your local environment, causing builds to fail mysteriously.
