@@ -167,3 +167,9 @@ After that if you run pnpm script inside of the project's folder with this updat
 
 1. If the version of pnpm, mentioned in the package.json, is already installed in the OS, Corepack won't download anything. And if there's no such type of version, it will download it and store it.
 2. Every time since than the pnpm script is run, it will be using the pnpm with the version, mentioned in the package.json.
+
+With all that said, unfortunately `pnpm` can't be fully managed by `Corepack` if the Node version is managed by the "volta" in the project. The reason is that "Volta" doesn't look at the "Corepack" toolchain (let's call it like that) to check if the "Corepack" is installed something or not. In other words "Volta" doesn't look at the "packageManager" property in the package.json. Only "Corepack" does. But the "Corepack" belongs to the Node, which is installed by the nvm but not by Volta. Volta doesn't not use "Corepack" on it's side. And it's obviously wrong to use "Corepack", which belongs to the Node installed by nvm to manager package manager and at the same time to use "Volta" to manage Node. "Node" and all "Node"-dependant tools should be manager by one common entity these tools to stay in sync.
+
+The good news is that there is a way to manager "pnpm", using "Volta". The support is experimental and to be able to do it the environment variable `VOLTA_FEATURE_PNPM` should be set up to 1.
+
+Let's look at how to manager `pnpm`, using the Volta.
