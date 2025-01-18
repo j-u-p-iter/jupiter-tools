@@ -205,3 +205,31 @@ So, only when the "pnpm" is installed in the "Volta" toolchain:
 ```
 VOLTA_FEATURE_PNPM=1 pnpm build
 ```
+
+Not to run this complex string every time you need to run the `pnpm` it's useful to create alias:
+
+1. Open (or create) the .bash_aliases file:
+
+```
+vim ~/.bash_aliases
+```
+
+2. Update this file with the new alias:
+
+```
+alias pnpm='VOLTA_FEATURE_PNPM=1 pnpm'
+```
+
+3. Activate alias by typing:
+
+```
+source ~/.bash_aliases
+```
+
+4. Check that alias was added to the list of aliases with the command:
+
+```
+alias
+```
+
+5. Start using the alias and type `pnpm` instead of `VOLTA_FEATURE_PNPM=1 pnpm`.
