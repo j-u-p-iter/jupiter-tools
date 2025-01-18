@@ -173,3 +173,5 @@ With all that said, unfortunately `pnpm` can't be fully managed by `Corepack` if
 The good news is that there is a way to manager "pnpm", using "Volta". The support is experimental and to be able to do it the environment variable `VOLTA_FEATURE_PNPM` should be set up to 1.
 
 Let's look at how to manager `pnpm`, using the Volta.
+
+1. The first and foremost step is to install `pnpm`, using Volta in the Volta's toolchain.
