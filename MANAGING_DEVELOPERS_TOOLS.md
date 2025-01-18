@@ -199,3 +199,9 @@ and try to run "pnpm" without having "pnpm" in the toolchain, the "pnpm" won't b
 So, only when the "pnpm" is installed in the "Volta" toolchain:
 - the Node, installed by the "Volta" will be respected by the "pnpm";
 - if the "pnpm", mentioned in the package.json in the "volta" context has different version from which was installed in the Volta's toolchain, the new one will be installed to respect the "pnpm" version, mentioned in the package.json.
+
+2. Volta to respect the "Node" version from the Volta's config and to be reinstalled if the versions in the package.json and in the Volta's toolchain are different, the "pnpm" command should be prepended with VOLTA_FEATURE_PNPM=1:
+
+```
+VOLTA_FEATURE_PNPM=1 pnpm build
+```
