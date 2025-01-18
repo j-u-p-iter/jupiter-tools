@@ -174,4 +174,28 @@ The good news is that there is a way to manager "pnpm", using "Volta". The suppo
 
 Let's look at how to manager `pnpm`, using the Volta.
 
-1. The first and foremost step is to install `pnpm`, using Volta in the Volta's toolchain.
+1. The first and foremost step is to install `pnpm`, using Volta in the Volta's toolchain. To do that you should run the next command:
+
+```
+volta install pnpm
+```
+
+This command will install the last supported version. You can also set up any precise version, pointing out the version of the pnpm explicitly.
+
+The important thing here is to have `pnpm` installed in the "Volta" toolchain. If you point out the "pnpm" version only in the package.json:
+
+```
+"volta": {
+  "node": "18.20.5",
+  "pnpm": "9.15.4"
+}
+```
+
+and try to run "pnpm" without having "pnpm" in the toolchain, the "pnpm" won't be installed. Instead two situations are possible:
+
+- if there is no "pnpm" installed in the system, the error will be thrown:  `command not found: pnpm`,
+- if there is globally installed pnpm, this globally installed pnpm will be used. However, this global pnpm doesn't respect the Node installed by "Volta", but uses the Node, installed by the "nvm".
+
+So, only when the "pnpm" is installed in the "Volta" toolchain:
+- the Node, installed by the "Volta" will be respected by the "pnpm";
+- if the "pnpm", mentioned in the package.json in the "volta" context has different version from which was installed in the Volta's toolchain, the new one will be installed to respect the "pnpm" version, mentioned in the package.json.
