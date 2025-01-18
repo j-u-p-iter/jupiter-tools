@@ -69,8 +69,6 @@ All the tools you can see printed on the Terminal's screen are managed by the Vo
 
 So, you can use the same `volta which ${executable_name}` command to check, where the executable is stored.
 
-In our projects we use Volta only for managing the Node, but if you want you can manage other tools by Volta either.
-
 When the Volta tool is installed in your OS, there are two possible ways how you can start managing Node version used by all executables in your project.
 
 The first way to do it is to use the next command:
