@@ -233,3 +233,16 @@ alias
 ```
 
 5. Start using the alias and type `pnpm` instead of `VOLTA_FEATURE_PNPM=1 pnpm`.
+
+## Validation of the developers tools
+
+To be sure, that the `Node` and `pnpm` are used properly and correct versions of these tools are run for the project all the time, it's very useful to add `engines` property to the package.json:
+
+```
+engines: {
+  "node": "21.0.0",
+  "pnpm": "9.15.4"
+}
+```
+
+Every time the Node and pnpm executables will be run in the project, the versions should be validated and if they differ from the pointed out in the `engines` field, the warning will be thrown.
