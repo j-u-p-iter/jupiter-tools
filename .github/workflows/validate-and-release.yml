@@ -31,13 +31,20 @@ jobs:
         run: volta install pnpm
 
       - name: Install dependencies
-        run: VOLTA_FEATURE_PNPM=1 pnpm install
+        run: pnpm install
+        env:
+          VOLTA_FEATURE_PNPM: 1
+
 
       - name: Build package
-        run: VOLTA_FEATURE_PNPM=1 pnpm build_internal
+        run: pnpm build_internal
+        env:
+          VOLTA_FEATURE_PNPM: 1
 
       - name: Validate package
-        run: VOLTA_FEATURE_PNPM=1 pnpm validate
+        run: pnpm validate
+        env:
+          VOLTA_FEATURE_PNPM: 1
 
       - name: Release package
         uses: cycjimmy/semantic-release-action@v4
