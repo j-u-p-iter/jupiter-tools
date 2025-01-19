@@ -24,8 +24,10 @@ jobs:
       - name: Setup volta
         uses: volta-cli/action@v4
 
-      - name: Install dependencies
+      - name: Installs node
         run: volta install node
+
+      - name: Install dependencies
         run: volta install pnpm
 
       - name: Build package
