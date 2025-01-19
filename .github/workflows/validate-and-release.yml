@@ -21,19 +21,17 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Setup node
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node }}
+      - name: Setup volta
+        uses: volta-cli/action@v4
 
       - name: Install dependencies
-        run: yarn install
+        run: volta install pnpm
 
       - name: Build package
-        run: yarn build_internal
+        run: pnpm build_internal
 
       - name: Validate package
-        run: yarn validate
+        run: pnpm validate
 
       - name: Release package
         uses: cycjimmy/semantic-release-action@v4
