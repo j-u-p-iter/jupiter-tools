@@ -24,9 +24,6 @@ jobs:
       - name: Setup volta
         uses: volta-cli/action@v4
 
-      - name: Install node
-        run: volta install node
-
       - name: Install pnpm
         run: volta install pnpm
 
@@ -34,7 +31,6 @@ jobs:
         run: pnpm install
         env:
           VOLTA_FEATURE_PNPM: 1
-
 
       - name: Build package
         run: pnpm build_internal
