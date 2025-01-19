@@ -18,11 +18,11 @@
   "scripts": {
     "build_internal": "tsc --project tsconfig.build.json",
     "build": "node scripts/build.js",
-    "build:watch": "yarn run build --watch",
+    "build:watch": "pnpm run build --watch",
     "lint": "node scripts/lint.js",
-    "lint:watch": "yarn run lint --watch",
+    "lint:watch": "pnpm run lint --watch",
     "test": "node scripts/test.js",
-    "test:watch": "yarn run test --watch",
+    "test:watch": "pnpm run test --watch",
     "validate": "node scripts/validate.js",
     "commit": "node scripts/commit.js",
     "rimraf": "rimraf __dist__ dist"
@@ -37,9 +37,6 @@
     "package.json",
     "dist"
   ],
-  "volta": {
-    "node": "18.17.1"
-  },
   "devDependencies": {
     "@types/cross-spawn": "^6.0.3",
     "@types/eslint": "^8.44.6",
@@ -77,5 +74,12 @@
     "write-json-file": "^5.0.0",
     "yargs-parser": "^21.1.1"
   },
-  "packageManager": "yarn@4.0.0"
+  "volta": {
+    "node": "21.0.0",
+    "pnpm": "9.15.4"
+  },
+  "engines": {
+    "node": "21.0.0",
+    "pnpm": "9.15.4"
+  }
 }

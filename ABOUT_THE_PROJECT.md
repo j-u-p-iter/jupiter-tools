@@ -47,7 +47,7 @@ was made. When we are using the same scripts created by the project on the proje
 
 So, yes, the `build` script is running out of the `internal` __dist__ folder. But this is a tradeoff.
 
-The scripts from the `scripts` folder are run using the `npm/yarn` scripts sitting in the package.json.
+The scripts from the `scripts` folder are run using the `npm/yarn/pnpm` scripts sitting in the package.json.
 
 ### `build` script
 

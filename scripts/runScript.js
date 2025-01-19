@@ -19,7 +19,7 @@ export const runScript = (scriptName) => {
   };
 
   const runBuild = () => {
-    spawn.sync("yarn", ["build"], {
+    spawn.sync("pnpm", ["build"], {
       stdio: "inherit",
     });
   };

@@ -86,8 +86,8 @@ export const prepareConfig = (process: any) => {
     parsedArgs.findRelatedTests && originalPaths
       ? ["related", originalPaths]
       : parsedArgs.findRelatedTests
-      ? ["related"]
-      : [];
+        ? ["related"]
+        : [];
 
   /**
    * Add path to the location (file/folder) to test

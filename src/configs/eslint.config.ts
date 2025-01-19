@@ -19,8 +19,8 @@ const pathToBuilinConfig = path.resolve("tsconfig.json");
 const tsConfigPath = fs.existsSync(pathToBuilinConfig)
   ? pathToBuilinConfig
   : fs.existsSync(pathToDefaultConfig)
-  ? pathToDefaultConfig
-  : undefined;
+    ? pathToDefaultConfig
+    : undefined;
 
 /**
  * - files field plays like a guard. It's not allowed to lint files which don't match

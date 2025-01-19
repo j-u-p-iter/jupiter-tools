@@ -1,10 +1,10 @@
 export const prepareConfig = () => {
   const validationScripts = [
-    "yarn run build",
+    "pnpm run build",
 
-    "yarn run lint --no-cache --no-fix",
+    "pnpm run lint --no-cache --no-fix",
 
-    "yarn run test --pass-with-no-tests",
+    "pnpm run test --pass-with-no-tests",
   ];
 
   return validationScripts;

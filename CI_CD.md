@@ -43,10 +43,8 @@ ${{ matrix.node }}
 
 which was set up previously.
 
-Next we are installing the dependencies with yarn. Yarn itself will be installed automatically by the Corepack which is a part of a Node.js.
+Next we are installing the dependencies with pnpm. pnpm itself will be installed automatically by the Corepack which is a part of a Node.js.
 Corepack knows which package manager version to use thanks to the standard packageManager field in your package.json
-Also the yarn to be installed properly some files from the .yarn folder should be committed. To do that the .gitignore file should be updated
-appropriately.
 
 In case CI_CD pipeline fails with the issue "GitHub token is invalid" there is a big probability that the previous GitHub personal access token is expired and it's necessary to
 create a new one. To do that it's necessary to go through the next set of steps:

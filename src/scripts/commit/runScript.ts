@@ -22,7 +22,7 @@ if (result.status !== null && result.status !== 0) {
   process.exit(result.status);
 }
 
-result = spawn.sync("yarn", ["build"], {
+result = spawn.sync("pnpm", ["build"], {
   stdio: "inherit",
 });
 

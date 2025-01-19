@@ -17,7 +17,7 @@ const runPackageBuild = () => {
 };
 
 export const runInternalBuild = () => {
-  spawn.sync("yarn", ["build_internal"], {
+  spawn.sync("pnpm", ["build_internal"], {
     stdio: "inherit",
   });
 };
