@@ -39,6 +39,7 @@ jobs:
           VOLTA_FEATURE_PNPM: 1
 
   release:
+    runs-on: ubuntu-latest
     steps:
       - name: Release package
         uses: cycjimmy/semantic-release-action@v4
