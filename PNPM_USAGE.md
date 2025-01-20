@@ -9,5 +9,22 @@ The usage for the non-monorepo is very simple. You just should use `pnpm` comman
 
 ## Usage for the monorepo
 
+`pnpm` also can be used to manage the monorepos.
+
+The example of the main command we use in our monorepos is:
+
+```
+pnpm --recursive run lint
+```
+
+This command runs `lint` script for every project of the workspace.
+
+For the `build` script we use slightly different command, which looks like that:
+
+```
+pnpm --recursive run --sequential build
+```
+
+It also runs the `build` script for every project of the workspace, but in a sequential way. It means the next `build` script runs just after (and not sooner) the previous `build` script finishes running.
 
 
