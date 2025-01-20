@@ -17,7 +17,7 @@ The example of the main command we use in our monorepos is:
 pnpm --recursive run lint
 ```
 
-This command runs `lint` script for every project of the workspace.
+This command runs `lint` script for every project of the workspace concurrently.
 
 For the `build` script we use slightly different command, which looks like that:
 
