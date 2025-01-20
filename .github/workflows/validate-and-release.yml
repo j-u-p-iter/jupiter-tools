@@ -39,8 +39,9 @@ jobs:
           VOLTA_FEATURE_PNPM: 1
 
   release:
-    - name: Release package
-      uses: cycjimmy/semantic-release-action@v4
-      env:
-        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+    steps:
+      - name: Release package
+        uses: cycjimmy/semantic-release-action@v4
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
