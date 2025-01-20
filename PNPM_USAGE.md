@@ -39,4 +39,10 @@ packages:
 
 It will tell pnpm, where the workspace packages are located (in the `packages` folder in this case). It's a more or less standard to name the folder, which contains the workspace packages as `packages`, but you are free to use absolutely any name of course. 
 
+## Migrating from another package manager to pnpm
 
+In case you are migrating to pnpm from another package manager, you should do several things:
+- be sure you've removed all the configs for the previous package manager. In case of yarn it is `.yarn` folder, for example.
+- be sure you've removed the lock file, created by the previous package manager. In case of yarn it's yarn.lock file, for example.
+- remove node_modules folder and reinstall dependencies, using pnpm. It's necessary since different package managers use different, in most cases incompatible with each other, dependencies resolutions algorithms.
+- `pnpm-lock.yml` file should be commited.
