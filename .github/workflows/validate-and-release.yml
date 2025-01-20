@@ -15,6 +15,8 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.os }}
+    env:
+      VOLTA_FEATURE_PNPM: 1
 
     steps:
       - name: Checkout repo
@@ -25,20 +27,15 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
-        env:
-          VOLTA_FEATURE_PNPM: 1
 
       - name: Build package
         run: pnpm build_internal
-        env:
-          VOLTA_FEATURE_PNPM: 1
 
       - name: Validate package
         run: pnpm validate
-        env:
-          VOLTA_FEATURE_PNPM: 1
 
   release:
+    needs: validate
     runs-on: ubuntu-latest
     steps:
       - name: Release package
