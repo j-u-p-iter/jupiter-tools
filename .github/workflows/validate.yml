@@ -33,3 +33,6 @@ jobs:
 
       - name: Validate package
         run: pnpm validate
+
+      - name: Store artifacts
+        uses: actions/upload-artifact@v4
