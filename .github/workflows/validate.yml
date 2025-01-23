@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  validate_and_release:
+  validate:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]

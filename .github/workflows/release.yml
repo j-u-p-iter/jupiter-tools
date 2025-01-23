@@ -15,6 +15,18 @@ jobs:
     strategy:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup volta
+        uses: volta-cli/action@v4
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build package
+        run: pnpm build_internal
+
       - name: Release package
         uses: cycjimmy/semantic-release-action@v4
         env:
