@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  validate:
+  validate_and_release:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
@@ -34,10 +34,6 @@ jobs:
       - name: Validate package
         run: pnpm validate
 
-  release:
-    needs: validate
-    runs-on: ubuntu-latest
-    steps:
       - name: Release package
         uses: cycjimmy/semantic-release-action@v4
         env:
