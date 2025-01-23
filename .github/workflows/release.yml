@@ -1,0 +1,22 @@
+name: Release
+
+on:
+  workflow_run:
+    workflows: [Validate]
+    types:
+      - completed
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  release:
+    strategy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Release package
+        uses: cycjimmy/semantic-release-action@v4
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
