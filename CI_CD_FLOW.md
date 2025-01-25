@@ -88,7 +88,10 @@ jobs:
 The first step we execute for the `validate` job is checkouting the repo. It's a fancy way to say - cloning the repository to the runner to be able to work with it. In other words it's a preparational step for the future scripts runs.
 
 ```
-steps:
-  - name: Checkout repo
-    uses: actions/checkout@v4
+jobs:
+  validate:
+    ...
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
 ```
