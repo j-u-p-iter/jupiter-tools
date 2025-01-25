@@ -205,3 +205,19 @@ jobs:
       - name: Build package
         run: pnpm build_internal
 ```
+
+And the final step finally release the package's itself:
+
+```
+- name: Release package
+  uses: cycjimmy/semantic-release-action@v4
+  env:
+    GH_TOKEN: ${{ secrets.GH_TOKEN }}
+    NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+```
+
+To release the package the semantic release tool is used. To make it possible to release the package two tokens should be provided fo the `semantic release` in environment variables:
+- GH_TOKEN to create release notes;
+- NPM_TOKEN to publish the package on the npm.
+
+The tokens should be stored in the github interface at first as secrets. As result, they become availale in the workflow in the `secrets` variable.
