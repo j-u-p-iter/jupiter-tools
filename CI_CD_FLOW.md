@@ -121,6 +121,7 @@ jobs:
   validate:
     ...
     steps:
+      ...
       - name: Install dependencies
         run: pnpm install
       
