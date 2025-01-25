@@ -190,3 +190,18 @@ jobs:
       - name: Setup volta
         uses: volta-cli/action@v4
 ```
+
+The next two steps are used to prepare the build to be released - install dependencies and build the package's build
+
+```
+jobs:
+  release:
+    ...
+    steps:
+      ...
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build package
+        run: pnpm build_internal
+```
