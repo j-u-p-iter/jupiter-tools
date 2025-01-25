@@ -221,3 +221,9 @@ To release the package the semantic release tool is used. To make it possible to
 - NPM_TOKEN to publish the package on the npm.
 
 The tokens should be stored in the github interface at first as secrets. As result, they become availale in the workflow in the `secrets` variable.
+
+In case CI_CD pipeline fails with the issue "GitHub token is invalid" there is a big probability that the previous GitHub personal access token is expired and it's necessary to create a new one. To do that it's necessary to go through the next set of steps:
+
+Create a new GitHub personal access token. How to do it is described here: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens.
+Update personal access token here: https://github.com/settings/tokens.
+After the steps mentioned above applied the issue should be fixed.
