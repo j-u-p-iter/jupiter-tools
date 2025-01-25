@@ -51,3 +51,5 @@ jobs:
         os: [ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.os }}
 ```
+
+The project uses the `pnpm` package manager. Also the project uses `Volta` to manage installation of the developers tools like `Node` and `pnpm`. What exactly versions `Volta` should install is specified in the `package.json`. `Volta` usually automatically installs executables it manages if they don't exist on the machine. However the support for the `pnpm` is experimental for now. This is why `Volta` to install `pnpm` in case it doesn't exist on the machine it's necessary to run `pnpm` script with the `VOLTA_FEATURE_PNPM` environment variable.
