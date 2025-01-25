@@ -176,3 +176,17 @@ Of course it doesn't make sense to run the `release` job if the completed `Valid
 ```
 if: ${{ github.event.workflow_run.conclusion == 'success' }}
 ```
+
+The first step is used to checkout the repo and the next step is used to install `Volta`:
+
+```
+jobs:
+  release:
+    ...
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup volta
+        uses: volta-cli/action@v4
+```
