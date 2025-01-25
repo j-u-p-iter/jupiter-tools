@@ -95,3 +95,14 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 ```
+
+The next step is also preparational - it installs the `Volta` to the runner. As it was said above we use `Volta` to manage `Node.js` and `pnpm` dependencies. `Volta` installs necessary versions of these executables, provided in the `package.json`.
+
+```
+jobs:
+  validate:
+    ...
+    steps:
+      - name: Setup volta
+        uses: volta-cli/action@v4
+```
