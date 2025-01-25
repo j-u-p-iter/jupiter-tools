@@ -136,3 +136,15 @@ The name of the workflow is `Release`:
 ```
 name: Release
 ```
+
+It's triggered after the `Validate` workflow is completed:
+
+```
+on:
+  workflow_run:
+    workflows: [Validate]
+    types:
+      - completed
+```
+
+Please notice, that these instructions don't say anything about if the `Validate` workflow completed with success or not. The condition which includes the `result` of the `Validate` workflow will be specified later.
