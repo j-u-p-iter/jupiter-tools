@@ -15,3 +15,12 @@ The `name` of the workflow is `Validate`:
 ```
 name: Validate
 ```
+
+The workflow is triggered by the push to the `master` branch:
+
+```
+on:
+  push:
+    branches:
+      - master
+```
