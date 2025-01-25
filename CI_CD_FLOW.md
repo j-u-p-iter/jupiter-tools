@@ -128,3 +128,11 @@ So, when `Volta` runs the first, of the three mentioned above, step, it can see,
 ```
 
 ## Release workflow
+
+The goal of the `Release` workflow is to release the package. It goes after the `Validate` workflow and it's triggered just after the `Validate` workflow is completed.
+
+The name of the workflow is `Release`:
+
+```
+name: Release
+```
