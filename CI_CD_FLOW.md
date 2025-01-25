@@ -61,3 +61,25 @@ jobs:
     env:
       VOLTA_FEATURE_PNPM: 1
 ```
+
+Every job consists of steps. There should be at least one step pointed out for every job. The `validate` job consists of multiple steps:
+
+```
+jobs:
+  validate:
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup volta
+        uses: volta-cli/action@v4
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build package
+        run: pnpm build_internal
+
+      - name: Validate package
+        run: pnpm validate
+```
