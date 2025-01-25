@@ -117,14 +117,18 @@ To run all these scripts we use `pnpm`. `pnpm` to be able to run requires `Node.
 So, when `Volta` runs the first, of the three mentioned above, step, it can see, that there is not `Node` and `pnpm` on the runner. So, before proceeding with the script it installs the `Node` and `pnpm` and after that proceeds with the first step and all other steps.
 
 ```
-- name: Install dependencies
-  run: pnpm install
-
-- name: Build package
-  run: pnpm build_internal
-
-- name: Validate package
-  run: pnpm validate
+jobs:
+  validate:
+    ...
+    steps:
+      - name: Install dependencies
+        run: pnpm install
+      
+      - name: Build package
+        run: pnpm build_internal
+      
+      - name: Validate package
+        run: pnpm validate
 ```
 
 ## Release workflow
