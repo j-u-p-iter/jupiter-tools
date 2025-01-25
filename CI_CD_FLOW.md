@@ -33,3 +33,21 @@ Concurrency group name consists of two dynamic parts:
 `github.ref` - the name of the branch ("master").
 
 These dynamic parts serve to uniquely identify the workflow. Only if the new started workflow has the same `concurrency group` name, the previously started workflow with the same `concurrency group` name will be cancelled in favour of the new one.
+
+Every workflow consists of minimum one job to run. The current workflow consists of one job, which is called `validate`.
+
+```
+jobs:
+  validate:
+```
+
+We validate the package in two OS - `ubuntu` and `window`:
+
+```
+jobs:
+  validate:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+```
