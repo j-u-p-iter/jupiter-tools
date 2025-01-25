@@ -24,3 +24,12 @@ on:
     branches:
       - master
 ```
+
+The `concurrency` field allows us to cancel previously created "Validate" workflow in case the `master` branch is updated again. This is why the `cancel-in-progress` set up to `true`.
+
+Concurrency group name consists of two dynamic parts:
+
+`github.workflow` - the name of the workflow ("Validate");
+`github.ref` - the name of the branch ("master").
+
+These dynamic parts serve to uniquely identify the workflow. Only if the new started workflow has the same `concurrency group` name, the previously started workflow with the same `concurrency group` name will be cancelled in favour of the new one.
