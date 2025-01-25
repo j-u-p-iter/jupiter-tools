@@ -165,3 +165,9 @@ jobs:
     env:
       VOLTA_FEATURE_PNPM: 1
 ```
+
+Of course it doesn't make sense to run the `release` job if the completed `Validate` workflow failed with an error. To run the `release` job's steps only in case the `Validate` workflow (which triggers the `Release` one) completed with success the next if-statement is used:
+
+```
+if: ${{ github.event.workflow_run.conclusion == 'success' }}
+```
