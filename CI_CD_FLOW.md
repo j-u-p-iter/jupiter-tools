@@ -67,6 +67,7 @@ Every job consists of steps. There should be at least one step pointed out for e
 ```
 jobs:
   validate:
+    ...
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
