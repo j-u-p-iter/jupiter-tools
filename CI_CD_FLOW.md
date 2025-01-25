@@ -155,3 +155,13 @@ The current workflow consists of one job, which is called `release`.
 jobs:
   release:
 ```
+
+The release process is run on `ubuntu` and to be able to use `pnpm` with `Volta` the `VOLTA_FEATURE_PNPM` environment variable is provided:
+
+```
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      VOLTA_FEATURE_PNPM: 1
+```
