@@ -5,16 +5,12 @@ on:
     workflows: [Validate]
     types:
       - completed
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   release:
     runs-on: ubuntu-latest
     env:
       VOLTA_FEATURE_PNPM: 1
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
