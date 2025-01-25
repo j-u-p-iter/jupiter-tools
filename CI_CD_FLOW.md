@@ -106,3 +106,25 @@ jobs:
       - name: Setup volta
         uses: volta-cli/action@v4
 ```
+
+In the next three steps of the workflow we sequentially 
+- install dependencies;
+- build the package
+- validate the package's code
+
+To run all these scripts we use `pnpm`. `pnpm` to be able to run requires `Node.js`. Please notice, that we haven't installed neither `pnpm` nor `Node` but still are able to run the `pnpm` scripts. The reason, as it was several times mentioned above, is that we use `Volta`, that manages installations of the `pnpm` and `node`. The version for these tools are taken by `Volta` from the `package.json`.
+
+So, when `Volta` runs the first, of the three mentioned above, step, it can see, that there is not `Node` and `pnpm` on the runner. So, before proceeding with the script it installs the `Node` and `pnpm` and after that proceeds with the first step and all other steps.
+
+```
+- name: Install dependencies
+  run: pnpm install
+
+- name: Build package
+  run: pnpm build_internal
+
+- name: Validate package
+  run: pnpm validate
+```
+
+## Release workflow
